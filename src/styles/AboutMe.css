@@ -1,0 +1,7 @@
+.about-me{
+    position: absolute;
+    top: 200vh;
+    min-width: 40%;
+    background-color: red;
+    height: 100vh;
+}
