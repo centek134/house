@@ -17,7 +17,7 @@ const App = () => {
       <section className="wrapper__canvas">
 
       <Canvas shadows="soft">
-        <ScrollControls ScrollControls pages={5} style={{width:"100%",height:"100%"}}>
+        <ScrollControls ScrollControls pages={10} style={{width:"100%",height:"100%"}}>
         <color attach="background" args={["#FFFBEB"]} />
           <PerspectiveCamera rotation={[-0.6,0,0]} makeDefault position={[0,10,13]} />
           <spotLight intensity={0.7}  castShadow position={[0,7,2.9]}/>
