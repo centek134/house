@@ -19,24 +19,23 @@ const App = () => {
   return (
   <main onMouseMove={(e) => mouseTrack(e)} className="wrapper">
     <section className="wrapper__canvas">
-    <Canvas shadows="soft">
-      <ScrollControls ScrollControls pages = {15.5} style = {{width:"100%",height:"100%"}}>
-      <color attach="background" args = {["#ECF2F9"]} />
-        <PerspectiveCamera rotation = {[-0.6,0,0]} makeDefault position = {[0,10,13]} />
-        <spotLight intensity={0.7} castShadow position = {[0,7,2.9]}/>
-        <ambientLight intensity={0.5}/>
-        <House mouseX = {mouseX}/>
-        <Floor mouseX = {mouseX}/>
-        <Scroll html style={{width:"100%"}}>
-          <Hero/>
-          <PageContent/>
-        </Scroll>
-      </ScrollControls>
-    </Canvas>
+      <Canvas shadows="soft">
+        <color attach="background" args = {["#ECF2F9"]} />
+          <PerspectiveCamera rotation = {[-0.6,0,0]} makeDefault position = {[0,10,13]} />
+          <spotLight intensity={0.7} castShadow position = {[0,7,2.9]}/>
+          <ambientLight intensity={0.5}/>
+          <House mouseX = {mouseX}/>
+          <Floor mouseX = {mouseX}/>
+      </Canvas>
+    </section>
+    <section className="wrapper__page">
+      <Hero/>
+      <PageContent/>
     </section>
   </main>
   );
 };
 
 export default App
+
 
