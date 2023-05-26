@@ -65,9 +65,6 @@
 .list__item .item__link:visited{
     color: var(--black);
 }
-
-
-
 .--right{
     left: 50%;
 }

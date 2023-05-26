@@ -6,7 +6,7 @@
 }
 .hero__info{
     position: absolute;
-    bottom: 300px;
+    bottom: 30%;
 }
 .hero .info__name{
     font-family: 'Montserrat', sans-serif;
