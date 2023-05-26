@@ -2,30 +2,25 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/no-unknown-property */
 import "./App.css"
-import {useState} from "react";
+import {useState, useLayoutEffect, useRef} from "react";
 import { Canvas } from "@react-three/fiber";
-import { PerspectiveCamera, ScrollControls, Scroll } from "@react-three/drei";
-import { House, Floor, PageContent, Hero } from "./components/index";
+import { PerspectiveCamera } from "@react-three/drei";
+import { House, PageContent, Hero } from "./components/index";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/all";
 const App = () => {
+  const camera = useRef();
+  const light = useRef();
 
-  const [ mouseX, setMouseX ] = useState(-0.7)
-
-  const mouseTrack = (e) => {
-    const mouseX = (e.clientX / window.innerWidth / 6) * 2 - 1;
-    setMouseX(mouseX)
-  };
-
-  
   return (
-  <main onMouseMove={(e) => mouseTrack(e)} className="wrapper">
+  <main className="wrapper">
     <section className="wrapper__canvas">
       <Canvas shadows="soft">
         <color attach="background" args = {["#ECF2F9"]} />
-          <PerspectiveCamera rotation = {[-0.6,0,0]} makeDefault position = {[0,10,13]} />
-          <spotLight intensity={0.7} castShadow position = {[0,7,2.9]}/>
-          <ambientLight intensity={0.5}/>
-          <House mouseX = {mouseX}/>
-          <Floor mouseX = {mouseX}/>
+        <PerspectiveCamera ref={camera} rotation = {[-0.6,0,0]} makeDefault position = {[0,10,13]} />
+        <spotLight ref={light} intensity={0.7} castShadow position = {[0,10,2.9]}/>
+        <ambientLight intensity={0.5}/>
+        <House light = {light} camera={camera}/>
       </Canvas>
     </section>
     <section className="wrapper__page">
