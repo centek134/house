@@ -9,98 +9,136 @@ import { useGLTF } from "@react-three/drei";
 import {gsap} from "gsap"
 import { ScrollTrigger } from "gsap/all";
 export const House = (props) => {
+  const { nodes, materials } = useGLTF("/house.gltf");
   const mm = useRef();
   const room = useRef();
   const floor = useRef();
   const camera = props.camera;
   const light = props.light;
 
-  useLayoutEffect(() => {
+
+  useLayoutEffect(()=> {
     gsap.registerPlugin(ScrollTrigger)
-    mm.current = gsap.matchMedia();
-    mm.current.add(
-      "(min-width: 969px)",() => {
-      //first timeline
-      let tl = gsap.timeline({
-        scrollTrigger:{
-          trigger:".about-me",
-          start:"-1500px top",
-          end:"top",
-          scrub: true,
-          markers:true
-        }
-      });
-      tl.to(camera.current.position, {x:-7,duration:5})
-      //second timeline
-      tl = gsap.timeline({
-        scrollTrigger:{
-          trigger:".my-work",
-          start:"-1500px top",
-          end:"top",
-          scrub: true,
-          markers:true
-        }
-      })
-      .to(camera.current.position, {x:7,duration:5})
-    //third timeline
-      tl = gsap.timeline({
-        scrollTrigger:{
-          trigger:".contact-me",
-          start:"-1500px top",
-          end:"top",
-          scrub: true,
-          markers:true
-        }
-      })
-      .to(camera.current.position, {x:-7,duration:5})
-    });
-    mm.current.add(
-        "(max-width:968px)",() => {
-          //first timeline
-          let tl = gsap.timeline({
-            scrollTrigger:{
-              trigger:".about-me",
-              start:"-1000px top",
-              end:"top",
-              scrub: true,
-              markers:true
-            }
-          })
-          .to(room.current.position, {x:4, duration:2})
-          .to(floor.current.position,{x:4, duration:2},"<");
-          //second timeline
-  
-          tl = gsap.timeline({
-            scrollTrigger:{
-              trigger:".my-work",
-              start:"-1000px top",
-              end:"top",
-              scrub: true,
-              markers:true
-            }
-          })
-          .to(room.current.position, {x:-4,duration:2})
-          .to(floor.current.position,{x:-4,duration:2},"<")
-          .to(light.current.position, {x:-4, duration:2},"<");
+    mm.current = gsap.matchMedia()
+    mm.current.add({
+
+    })
+    //======================TIMELINE "(min-width: 1600px)" ============================
+      mm.current.add(
+        "(min-width: 1600px)",() => {
+        //first timeline
+        let tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".about-me",
+            start:"-1500px top",
+            end:"top",
+            scrub: true,
+            markers:true
+          }
+        });
+        tl.to(camera.current.position, {x:-7,duration:5})
+        // second timeline
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".my-work",
+            start:"-1500px top",
+            end:"top",
+            scrub: true,
+            markers:true
+          }
+        })
+        .to(camera.current.position, {x:7,duration:5})
+      //third timeline
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".contact-me",
+            start:"-1500px top",
+            end:"top",
+            scrub: true,
+            markers:true
+          }
+        })
+        .to(camera.current.position, {x:-7,duration:5})
+  });
+
+  //======================TIMELINE "(min-width: 1250px) and (max-width:1599px)" ============================
+        mm.current.add(
+        "(min-width: 1250px) and (max-width:1599px)",() => {
+        //first timeline
+        let tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".about-me",
+            start:"-1500px top",
+            end:"top",
+            scrub: true,
+            markers:true
+          }
+        });
+        tl.to(camera.current.position, {x:-5.5,duration:5});
+        //second timeline
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".my-work",
+            start:"-1500px top",
+            end:"top",
+            scrub: true,
+            markers:true
+          }
+        });
+        tl.to(camera.current.position, {x:5.5,duration:5});
         //third timeline
-  
-          tl = gsap.timeline({
-            scrollTrigger:{
-              trigger:".contact-me",
-              start:"-100px top",
-              end:"top",
-              scrub: true,
-              markers:true
-            }
-          })
-          .to(room.current.position, {x:4, duration:2})
-          .to(floor.current.position,{x:4,duration:2},"<")
-          .to(light.current.position, {x:0, duration:2 },"<");
-    });
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".contact-me",
+            start:"-1500px top",
+            end:"top",
+            scrub: true,
+            markers:true
+          }
+        });
+        tl.to(camera.current.position, {x:-5.5,duration:5});
+  });
+  //======================TIMELINE "(min-width: 969px) and (max-width:1249px)" ============================
+        mm.current.add(
+        "(min-width: 969px) and (max-width:1249px)",() => {
+        //first timeline
+        let tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".about-me",
+            start:"-1500px top",
+            end:"top",
+            scrub: true,
+            markers:true
+          }
+        });
+        //second timeline
+        tl.to(camera.current.position, {x:-4,duration:5});
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".my-work",
+            start:"-1500px top",
+            end:"top",
+            scrub: true,
+            markers:true
+          }
+        });
+        tl.to(camera.current.position, {x:4,duration:5});
+        //third timeline
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".contact-me",
+            start:"-1500px top",
+            end:"top",
+            scrub: true,
+            markers:true
+          }
+        });
+        tl.to(camera.current.position, {x:-4,duration:5});
   });
 
 
-  const { nodes, materials } = useGLTF("/house.gltf");
+  });
+
   return (
     <>
     <mesh ref={floor} rotation={[-0.5 * Math.PI, 0, -0.7]} position={[0, -0.5, 0]} receiveShadow >
