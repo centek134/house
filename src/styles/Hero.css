@@ -1,0 +1,22 @@
+.hero{
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+.hero__info{
+    position: absolute;
+    bottom: 30%;
+}
+.hero .info__name{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 70px;
+    color: #1d100f;
+    text-shadow: #ffb94f 4px 4px 0px;
+    
+}
+.hero .info__title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+}
