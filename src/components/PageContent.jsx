@@ -6,7 +6,7 @@ export const PageContent = () => {
   
   return (
     <main className="page-wrapper">
-      <div className="section-margin"></div>
+      <div className="section-margin --first"></div>
       <section className="about-me section --left">
           <article className="section__intro-wrapper --pink-border">
               <h2 className="intro-wrapper__title"><span className="intro-wrapper__title__text --pink-text">ABOUT ME</span></h2> 
@@ -20,7 +20,7 @@ export const PageContent = () => {
           <p className="detail-wrapper__text">In my free time I like to read books 📚 most often I go for genres such as horror, fantasy. Working out is also a big part of my life, allows me to stay healthy and in shape 💪. Other than that I do like to play board games 🎲.</p>
           </article>
       </section>
-      <div className="section-margin"></div>
+      <div className="section-margin --second"></div>
       <section className="my-work section --right">
           <article className="section__intro-wrapper --purple-border">
               <h2 className="intro-wrapper__title"><span className="intro-wrapper__title__text --purple-text">WORK & SKILLS</span></h2>
@@ -59,7 +59,7 @@ export const PageContent = () => {
             <p className="detail-wrapper__text"></p>
           </article>
       </section>
-      <div className="section-margin"></div>
+      <div className="section-margin --third"></div>
       <section className="contact-me section --left">
           <article className="section__intro-wrapper --green-border">
               <h2 className="intro-wrapper__title"><span className="intro-wrapper__title__text --green-text">CONTACT ME</span></h2>
