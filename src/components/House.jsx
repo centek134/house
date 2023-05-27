@@ -28,7 +28,7 @@ export const House = (props) => {
     console.log(vid)
     gsap.registerPlugin(ScrollTrigger)
     mm.current = gsap.matchMedia();
-    //======================TIMELINE "(min-width: 1600px)" ============================
+    //======================TIMELINE "(min-width: 1500px)" ============================
       mm.current.add(
         "(min-width: 1500px)",() => {
           let tl = gsap.timeline({
