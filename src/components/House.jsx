@@ -4,7 +4,7 @@
 /* eslint-disable no-unused-vars */
 
 import React, { useRef, useLayoutEffect, useState } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, Circle } from "@react-three/drei";
 import {gsap} from "gsap"
 import { ScrollTrigger } from "gsap/all";
 
@@ -12,7 +12,9 @@ export const House = (props) => {
   const { nodes, materials } = useGLTF("/House.gltf");
   const room = useRef();
   const mm = useRef();
-  const floor = useRef();
+  const floor1 = useRef();
+  const floor2 = useRef();
+  const floor3 = useRef();
   const camera = props.camera;
   const monitorScreen = useRef();
   const mailBox = useRef();
@@ -29,8 +31,9 @@ export const House = (props) => {
     gsap.registerPlugin(ScrollTrigger)
     mm.current = gsap.matchMedia();
     //======================TIMELINE "(min-width: 1500px)" ============================
-      mm.current.add(
-        "(min-width: 1500px)",() => {
+    mm.current.add(
+      "(min-width: 1500px)",() => {
+          //setting up camera to middle
           let tl = gsap.timeline({
             scrollTrigger:{
               trigger:".hero",
@@ -38,9 +41,20 @@ export const House = (props) => {
               end:"top",
               scrub: true,
             }
-          })
+          });
+          //floor 1 animation
           tl.to(camera.current.position,{x:0,y:10,z:13});
-        //first timeline
+          tl = gsap.timeline({
+            scrollTrigger:{
+              trigger:".hero",
+              start:"bottom",
+              end:"2500px",
+              scrub: true,
+              markers:true
+            }
+          });
+          tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
+        //camera movement + about-me section radius
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".section-margin.--first",
@@ -51,7 +65,18 @@ export const House = (props) => {
         });
         tl.fromTo(camera.current.position,{x:0,y:10,z:13}, {x:-7,duration:3});
         tl.fromTo(".about-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
-        // second timeline
+        //floor 2 animation
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".section-margin.--second",
+            start:"-3000px top",
+            end:"top",
+            scrub: true,
+            markers:true
+          }
+        });
+        tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
+        // camera movement + mywork section radius
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".section-margin.--second",
@@ -73,8 +98,8 @@ export const House = (props) => {
           }
         });
         tl.fromTo(camera.current.position,{x:3.5,y:4.5,z:3},{x:-2.5,y:3,z:7,duration:3});
-        tl.fromTo(".contact-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "+=2");
-
+        tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5});
+        tl.fromTo(".contact-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=2");
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".contact-me",
@@ -207,6 +232,7 @@ export const House = (props) => {
     tl.fromTo(camera.current.position, {x:3.5,y:5.5,z:5,duration:5},{x:-2,y:3,z:8,duration:3});
     tl.fromTo(".contact-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
 
+
     tl = gsap.timeline({
       scrollTrigger:{
         trigger:".contact-me",
@@ -226,9 +252,30 @@ export const House = (props) => {
 
   });
 
+  // #cef5ba
+  // #A2D2A0
+// 
+// 
+// 
+// 
+// 
+// #A0C3D2
+// 
+//   
   return (
     <>
-    <mesh ref={floor} rotation={[-0.5 * Math.PI, 0, -0.7]} position={[0, -0.5, 0]}  receiveShadow>
+    {/* Floors with are used as backgrond change */}
+    <Circle ref={floor1} scale={0} rotation={[-0.5 * Math.PI, 0, 0]} position={[0, -0.58, 0]}>
+      <meshStandardMaterial color={"#9fdbf5"} attach={"material"} opacity={1} />
+    </Circle>
+    <Circle ref={floor2} scale={0} rotation={[-0.5 * Math.PI, 0, 0]} position={[0, -0.56, 0]}>
+      <meshStandardMaterial color={"#adf589"} attach={"material"} opacity={1} />
+    </Circle>
+    <Circle ref={floor3} scale={0} rotation={[-0.5 * Math.PI, 0, 0]} position={[0, -0.52, 0]}>
+      <meshStandardMaterial color={"#f59f9f"} attach={"material"} opacity={1} />
+    </Circle>
+    {/* Floor used for shadows */}
+    <mesh rotation={[-0.5 * Math.PI, 0, -0.7]} position={[0, -0.5, 0]}  receiveShadow>
       <planeGeometry attach={"geometry"} args={[9, 9, 1, 1]} />
       <shadowMaterial  attach={"material"} opacity={0.2} />
     </mesh>
