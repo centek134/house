@@ -42,8 +42,8 @@ export const House = (props) => {
               scrub: true,
             }
           });
-          //floor 1 animation
           tl.to(camera.current.position,{x:0,y:10,z:13});
+          //floor 1 animation
           tl = gsap.timeline({
             scrollTrigger:{
               trigger:".hero",
@@ -87,7 +87,7 @@ export const House = (props) => {
         });
         tl.fromTo(camera.current.position,{x:-7},{x:3.5,y:4.5,z:3,duration:5});
         tl.fromTo(".my-work",{borderTopLeftRadius:1000}, {duration:5, borderTopLeftRadius:0}, "+=2");
-        // third timeline
+        // camera + contact-me section + floor 3
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".section-margin.--third",
@@ -122,7 +122,7 @@ export const House = (props) => {
   //======================TIMELINE "(min-width: 1250px) and (max-width:1499px)" ============================
         mm.current.add(
         "(min-width: 1250px) and (max-width:1499px)",() => {
-        //first timeline
+        //setting camera to middle
           let tl = gsap.timeline({
             scrollTrigger:{
             trigger:".hero",
@@ -132,6 +132,18 @@ export const House = (props) => {
           }
         });
           tl.to(camera.current.position,{x:0,y:10,z:13});
+          //floor 1 animation
+          tl = gsap.timeline({
+            scrollTrigger:{
+              trigger:".hero",
+              start:"bottom",
+              end:"2500px",
+              scrub: true,
+              markers:true
+            }
+          });
+          tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
+          //camera + about-me section
           tl = gsap.timeline({
           scrollTrigger:{
             trigger:".section-margin.--first",
@@ -143,7 +155,18 @@ export const House = (props) => {
         });
         tl.to(camera.current.position, {x:-5.5,duration:5});
         tl.fromTo(".about-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
-        //second timeline
+        //floor 2 animation
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".section-margin.--second",
+            start:"-3000px top",
+            end:"top",
+            scrub: true,
+            markers:true
+          }
+        });
+        tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
+        //camera + my-work section
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".section-margin.--second",
@@ -155,7 +178,7 @@ export const House = (props) => {
         });
         tl.fromTo(camera.current.position,{x:-5.5,y:10,z:13}, {x:3.5,y:5,z:4,duration:5});
         tl.fromTo(".my-work",{borderTopLeftRadius:1000}, {duration:3, borderTopLeftRadius:0}, "-=1");
-        //third timeline
+        //camera + my-work section + floor 3
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".section-margin.--third",
@@ -166,6 +189,7 @@ export const House = (props) => {
           }
         });
         tl.fromTo(camera.current.position, {x:3.5,y:5,z:4,duration:5},{x:-2,y:3,z:7,duration:3});
+        tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5});
         tl.fromTo(".contact-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
 
         tl = gsap.timeline({
@@ -186,7 +210,7 @@ export const House = (props) => {
   //======================TIMELINE "(min-width: 969px) and (max-width:1249px)" ============================
         mm.current.add(
         "(min-width: 969px) and (max-width:1249px)",() => {
-       //first timeline
+       //setting camera to middle
        let tl = gsap.timeline({
         scrollTrigger:{
         trigger:".hero",
@@ -196,6 +220,17 @@ export const House = (props) => {
       }
     });
       tl.to(camera.current.position,{x:0,y:10,z:13});
+      //floor 1 animation
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".hero",
+          start:"bottom",
+          end:"2500px",
+          scrub: true,
+          markers:true
+        }
+      });
+      tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
       tl = gsap.timeline({
       scrollTrigger:{
         trigger:".section-margin.--first",
@@ -207,7 +242,18 @@ export const House = (props) => {
     });
     tl.to(camera.current.position, {x:-4.5,duration:5});
     tl.fromTo(".about-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
-    //second timeline
+    //floor 2 animation
+    tl = gsap.timeline({
+        scrollTrigger:{
+        trigger:".section-margin.--second",
+        start:"-3000px top",
+        end:"top",
+        scrub: true,
+        markers:true
+      }
+    });
+    tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
+    //camera + my-work section
     tl = gsap.timeline({
       scrollTrigger:{
         trigger:".section-margin.--second",
@@ -219,7 +265,7 @@ export const House = (props) => {
     });
     tl.fromTo(camera.current.position,{x:-4.5,y:10,z:13}, {x:3.5,y:5.5,z:5,duration:5});
     tl.fromTo(".my-work",{borderTopLeftRadius:1000}, {duration:3, borderTopLeftRadius:0}, "-=1");
-    //third timeline
+    //camera + contact-me + floor 3
     tl = gsap.timeline({
       scrollTrigger:{
         trigger:".section-margin.--third",
@@ -230,9 +276,8 @@ export const House = (props) => {
       }
     });
     tl.fromTo(camera.current.position, {x:3.5,y:5.5,z:5,duration:5},{x:-2,y:3,z:8,duration:3});
+    tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5});
     tl.fromTo(".contact-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
-
-
     tl = gsap.timeline({
       scrollTrigger:{
         trigger:".contact-me",
