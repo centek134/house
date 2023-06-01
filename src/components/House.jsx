@@ -231,6 +231,7 @@ export const House = (props) => {
         }
       });
       tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
+      //camera + about-me section
       tl = gsap.timeline({
       scrollTrigger:{
         trigger:".section-margin.--first",
@@ -294,6 +295,104 @@ export const House = (props) => {
     tl.fromTo(stone2.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
   });
 
+  mm.current.add(
+      "(max-width: 969px)",() => {
+    //setting camera to middle
+    let tl = gsap.timeline({
+      scrollTrigger:{
+      trigger:".hero",
+      start:"-1500px top",
+      end:"top",
+      scrub: true,
+    }
+  });
+  tl.to(camera.current.position,{x:0,y:14,z:18});
+  //camera + floor 1 animation
+  tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:".hero",
+      start:"bottom",
+      end:"3000px",
+      scrub: true,
+    }
+  });
+  tl.fromTo(camera.current.position,{x:0,y:14,z:18},{x:0,y:9,z:10, duration:5});
+  tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:15});
+  //about-me radius animation
+  tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:".section-margin.--first",
+      start:"-1500px top",
+      end:"top",
+      scrub: true,
+      markers:true
+    }
+  });
+  tl.fromTo(".about-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
+   //camera movement + floor 2 animation
+  tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:".section-margin.--second",
+      start:"-3000px top",
+      end:"top",
+      scrub: true,
+      markers:true
+    }
+  });
+  tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:8});
+  tl.fromTo(camera.current.position,{x:0,y:9,z:10}, {x:2.5,y:5,z:5,duration:10});
+  //my-work radius animation
+  tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:".section-margin.--second",
+      start:"-1500px top",
+      end:"top",
+      scrub: true,
+      markers:true
+    }
+  });
+  tl.fromTo(".my-work",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
+  //camera + contact-me + floor 3
+  tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:".section-margin.--third",
+      start:"-3000px top",
+      end:"-500px bottom",
+      scrub: true,
+      markers:true
+    }
+  });
+  tl.fromTo(camera.current.position, {x:2.5,y:5,z:5,duration:5},{x:-1,y:3,z:10,duration:3});
+  tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5});
+
+  //contact-me models
+  tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:".section-margin.--third",
+      start:"-1400px top",
+      end:"bottom",
+      markers:true
+    }
+  });
+  tl.fromTo(walk.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+  tl.fromTo(walkPlates.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+  tl.fromTo(flowers.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+  tl.fromTo(mailBox.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+  tl.fromTo(stone1.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
+  tl.fromTo(stone2.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
+
+  //contact-me radius animation
+  tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:".section-margin.--third",
+      start:"-1500px top",
+      end:"top",
+      scrub: true,
+    }
+  });
+  tl.fromTo(".contact-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
+  // camera movement + mywork section radius
+  });
 
   });
 
@@ -499,4 +598,4 @@ export const House = (props) => {
   )
 }
 
-useGLTF.preload("/House.gltf")
+useGLTF.preload("/House.gltf");
