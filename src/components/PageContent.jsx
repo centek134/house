@@ -8,6 +8,9 @@ export const PageContent = () => {
     <main className="page-wrapper">
       <div className="section-margin --first"></div>
       <section className="about-me section --left">
+        <div className="progress-bar-wrapper">
+          <div className="progress-bar"></div>
+        </div>
           <article className="section__intro-wrapper --pink-border">
               <h2 className="intro-wrapper__title"><span className="intro-wrapper__title__text --pink-text">ABOUT ME</span></h2> 
               <div className="intro-wrapper__decoration --style-one --pink-background --pink-border"></div>
@@ -22,6 +25,9 @@ export const PageContent = () => {
       </section>
       <div className="section-margin --second"></div>
       <section className="my-work section --right">
+      <div className="progress-bar-wrapper">
+          <div className="progress-bar"></div>
+        </div>
           <article className="section__intro-wrapper --purple-border">
               <h2 className="intro-wrapper__title"><span className="intro-wrapper__title__text --purple-text">WORK & SKILLS</span></h2>
               <div className="intro-wrapper__decoration --style-one --purple-background --purple-border"></div>

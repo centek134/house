@@ -4,6 +4,17 @@
     padding: 800px 50px 0 80px;
     background-color: #FFFBEB;
 }
+.progress-bar-wrapper{
+    position: absolute;
+    width: 12px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.progress-bar{
+    width: 100%;
+    background-color: var(--hot-pink);
+}
 .section__intro-wrapper{
     position: relative;
     padding: 0px 0px 300px 0;

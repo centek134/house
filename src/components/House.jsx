@@ -26,8 +26,6 @@ export const House = (props) => {
 
 
   useLayoutEffect(()=> {
-    const vid = document.getElementById("video");
-    console.log(vid)
     gsap.registerPlugin(ScrollTrigger)
     mm.current = gsap.matchMedia();
     //======================TIMELINE "(min-width: 1500px)" ============================
@@ -50,7 +48,6 @@ export const House = (props) => {
               start:"bottom",
               end:"2500px",
               scrub: true,
-              markers:true
             }
           });
           tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
@@ -65,6 +62,17 @@ export const House = (props) => {
         });
         tl.fromTo(camera.current.position,{x:0,y:10,z:13}, {x:-7,duration:3});
         tl.fromTo(".about-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".about-me",
+            start:"top",
+            end:"bottom",
+            id:"scroll-na lewo",
+            markers:true,
+            scrub: true,
+          }
+        });
+        tl.fromTo(".progress-bar",{height:"0%"}, {duration:10, height:"100%"});
         //floor 2 animation
         tl = gsap.timeline({
           scrollTrigger:{
@@ -72,7 +80,6 @@ export const House = (props) => {
             start:"-3000px top",
             end:"top",
             scrub: true,
-            markers:true
           }
         });
         tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
@@ -94,7 +101,6 @@ export const House = (props) => {
             start:"-2000px top",
             end:"top",
             scrub: true,
-            markers:true
           }
         });
         tl.fromTo(camera.current.position,{x:3.5,y:4.5,z:3},{x:-2.5,y:3,z:7,duration:3});
@@ -105,7 +111,6 @@ export const House = (props) => {
             trigger:".contact-me",
             start:"top",
             end:"bottom",
-            markers:true
           }
         });
         tl.fromTo(walk.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
