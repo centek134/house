@@ -9,7 +9,7 @@ import { House, PageContent, Hero } from "./components/index";
 const App = () => {
   const camera = useRef();
   return (
-  <main className="wrapper">
+  <div className="wrapper">
     <section className="wrapper__canvas">
       <Canvas shadows="soft">
         <PerspectiveCamera ref={camera} rotation = {[-0.6,0,0]} makeDefault position = {[0,10,13]} />
@@ -25,7 +25,7 @@ const App = () => {
       <PageContent/>
     </section>
     <Loader/>
-  </main>
+  </div>
   );
 };
 
