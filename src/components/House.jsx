@@ -31,26 +31,26 @@ export const House = (props) => {
     //======================TIMELINE "(min-width: 1500px)" ============================
     mm.current.add(
       "(min-width: 1500px)",() => {
-          //setting up camera to middle
-          let tl = gsap.timeline({
-            scrollTrigger:{
-              trigger:".hero",
-              start:"-1500px top",
-              end:"top",
-              scrub: true,
-            }
-          });
-          tl.to(camera.current.position,{x:0,y:10,z:13});
-          //floor 1 animation
-          tl = gsap.timeline({
-            scrollTrigger:{
-              trigger:".hero",
-              start:"bottom",
-              end:"2500px",
-              scrub: true,
-            }
-          });
-          tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
+        //setting up camera to middle
+        let tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".hero",
+            start:"-1500px top",
+            end:"top",
+            scrub: true,
+          }
+        });
+        tl.to(camera.current.position,{x:0,y:10,z:13});
+        //floor 1 animation
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".hero",
+            start:"bottom",
+            end:"2500px",
+            scrub: true,
+          }
+        });
+        tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
         //camera movement + about-me section radius
         tl = gsap.timeline({
           scrollTrigger:{
@@ -62,17 +62,18 @@ export const House = (props) => {
         });
         tl.fromTo(camera.current.position,{x:0,y:10,z:13}, {x:-7,duration:3});
         tl.fromTo(".about-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
+        //progress bar for about-me section
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".about-me",
-            start:"top",
-            end:"bottom",
-            id:"scroll-na lewo",
-            markers:true,
+            start:"top top",
+            end:"bottom bottom",
+            pin:".about-me .progress-bar-wrapper .progress-bar",
+            pinSpacing:false,
             scrub: true,
           }
         });
-        tl.fromTo(".progress-bar",{height:"0%"}, {duration:10, height:"100%"});
+        tl.fromTo(".about-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
         //floor 2 animation
         tl = gsap.timeline({
           scrollTrigger:{
@@ -94,6 +95,19 @@ export const House = (props) => {
         });
         tl.fromTo(camera.current.position,{x:-7},{x:3.5,y:4.5,z:3,duration:5});
         tl.fromTo(".my-work",{borderTopLeftRadius:1000}, {duration:5, borderTopLeftRadius:0}, "+=2");
+        //progress bar for my-work section
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".my-work",
+            start:"top top",
+            end:"bottom bottom",
+            pin:".my-work .progress-bar-wrapper .progress-bar",
+            pinSpacing:false,
+            markers:true,
+            scrub: true,
+          }
+        });
+        tl.fromTo(".my-work .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
         // camera + contact-me section + floor 3
         tl = gsap.timeline({
           scrollTrigger:{
@@ -106,6 +120,20 @@ export const House = (props) => {
         tl.fromTo(camera.current.position,{x:3.5,y:4.5,z:3},{x:-2.5,y:3,z:7,duration:3});
         tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5});
         tl.fromTo(".contact-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=2");
+        //progress bar for contact-me section
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".contact-me",
+            start:"top top",
+            end:"bottom bottom",
+            pin:".contact-me .progress-bar-wrapper .progress-bar",
+            pinSpacing:false,
+            markers:true,
+            scrub: true,
+          }
+        });
+        tl.fromTo(".contact-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
+        //model animation for contact-me section
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".contact-me",
@@ -119,47 +147,55 @@ export const House = (props) => {
         tl.fromTo(mailBox.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
         tl.fromTo(stone1.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
         tl.fromTo(stone2.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
-
-
-
   });
 
   //======================TIMELINE "(min-width: 1250px) and (max-width:1499px)" ============================
-        mm.current.add(
-        "(min-width: 1250px) and (max-width:1499px)",() => {
+    mm.current.add(
+      "(min-width: 1250px) and (max-width:1499px)",() => {
         //setting camera to middle
-          let tl = gsap.timeline({
-            scrollTrigger:{
+        let tl = gsap.timeline({
+          scrollTrigger:{
             trigger:".hero",
             start:"-1500px top",
             end:"top",
             scrub: true,
           }
         });
-          tl.to(camera.current.position,{x:0,y:10,z:13});
-          //floor 1 animation
-          tl = gsap.timeline({
-            scrollTrigger:{
-              trigger:".hero",
-              start:"bottom",
-              end:"2500px",
-              scrub: true,
-              markers:true
-            }
-          });
-          tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
-          //camera + about-me section
-          tl = gsap.timeline({
+        tl.to(camera.current.position,{x:0,y:10,z:13});
+        //floor 1 animation
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".hero",
+            start:"bottom",
+            end:"2500px",
+            scrub: true,
+            markers:true
+          }
+        });
+        tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
+        //camera + about-me section
+        tl = gsap.timeline({
           scrollTrigger:{
             trigger:".section-margin.--first",
             start:"-1500px top",
             end:"top",
             scrub: true,
-            markers:true
           }
         });
         tl.to(camera.current.position, {x:-5.5,duration:5});
         tl.fromTo(".about-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
+        //progress bar for about-me section
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".about-me",
+            start:"top top",
+            end:"bottom bottom",
+            pin:".about-me .progress-bar-wrapper .progress-bar",
+            pinSpacing:false,
+            scrub: true,
+          }
+        });
+        tl.fromTo(".about-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
         //floor 2 animation
         tl = gsap.timeline({
           scrollTrigger:{
@@ -167,7 +203,6 @@ export const House = (props) => {
             start:"-3000px top",
             end:"top",
             scrub: true,
-            markers:true
           }
         });
         tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
@@ -178,11 +213,22 @@ export const House = (props) => {
             start:"-2000px top",
             end:"top",
             scrub: true,
-            markers:true
           }
         });
         tl.fromTo(camera.current.position,{x:-5.5,y:10,z:13}, {x:3.5,y:5,z:4,duration:5});
         tl.fromTo(".my-work",{borderTopLeftRadius:1000}, {duration:3, borderTopLeftRadius:0}, "-=1");
+        //progress bar for my-work section
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".my-work",
+            start:"top top",
+            end:"bottom bottom",
+            pin:".my-work .progress-bar-wrapper .progress-bar",
+            pinSpacing:false,
+            scrub: true,
+          }
+        });
+        tl.fromTo(".my-work .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
         //camera + my-work section + floor 3
         tl = gsap.timeline({
           scrollTrigger:{
@@ -190,13 +236,24 @@ export const House = (props) => {
             start:"-2000px top",
             end:"bottom",
             scrub: true,
-            markers:true
           }
         });
         tl.fromTo(camera.current.position, {x:3.5,y:5,z:4,duration:5},{x:-2,y:3,z:7,duration:3});
         tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5});
         tl.fromTo(".contact-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
-
+        //progress bar for contact-me section
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".contact-me",
+            start:"top top",
+            end:"bottom bottom",
+            pin:".contact-me .progress-bar-wrapper .progress-bar",
+            pinSpacing:false,
+            scrub: true,
+          }
+        });
+        tl.fromTo(".contact-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
+        //model animation for contact-me section
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".contact-me",
@@ -213,204 +270,263 @@ export const House = (props) => {
         tl.fromTo(stone2.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
   });
   //======================TIMELINE "(min-width: 969px) and (max-width:1249px)" ============================
-        mm.current.add(
-        "(min-width: 969px) and (max-width:1249px)",() => {
-       //setting camera to middle
-       let tl = gsap.timeline({
+    mm.current.add(
+      "(min-width: 969px) and (max-width:1249px)",() => {
+        //setting camera to middle
+        let tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".hero",
+            start:"-1500px top",
+            end:"top",
+            scrub: true,
+          }
+        });
+        tl.to(camera.current.position,{x:0,y:10,z:13});
+        //floor 1 animation
+        tl = gsap.timeline({
+          scrollTrigger:{
+            trigger:".hero",
+            start:"bottom",
+            end:"2500px",
+            scrub: true,
+            markers:true
+          }
+        });
+        tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
+        //camera + about-me section
+        tl = gsap.timeline({
         scrollTrigger:{
-        trigger:".hero",
-        start:"-1500px top",
-        end:"top",
-        scrub: true,
-      }
-    });
-      tl.to(camera.current.position,{x:0,y:10,z:13});
-      //floor 1 animation
+          trigger:".section-margin.--first",
+          start:"-1500px top",
+          end:"top",
+          scrub: true,
+        }
+      });
+      tl.to(camera.current.position, {x:-4.5,duration:5});
+      tl.fromTo(".about-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
+      //progress bar for about-me section
       tl = gsap.timeline({
         scrollTrigger:{
-          trigger:".hero",
-          start:"bottom",
-          end:"2500px",
+          trigger:".about-me",
+          start:"top top",
+          end:"bottom bottom",
+          pin:".about-me .progress-bar-wrapper .progress-bar",
+          pinSpacing:false,
+          scrub: true,
+        }
+      });
+      tl.fromTo(".about-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
+      //floor 2 animation
+      tl = gsap.timeline({
+          scrollTrigger:{
+          trigger:".section-margin.--second",
+          start:"-3000px top",
+          end:"top",
           scrub: true,
           markers:true
         }
       });
-      tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
-      //camera + about-me section
+      tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
+      //camera + my-work section
       tl = gsap.timeline({
-      scrollTrigger:{
-        trigger:".section-margin.--first",
-        start:"-1500px top",
-        end:"top",
-        scrub: true,
-        markers:true
-      }
-    });
-    tl.to(camera.current.position, {x:-4.5,duration:5});
-    tl.fromTo(".about-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
-    //floor 2 animation
-    tl = gsap.timeline({
         scrollTrigger:{
-        trigger:".section-margin.--second",
-        start:"-3000px top",
-        end:"top",
-        scrub: true,
-        markers:true
-      }
+          trigger:".section-margin.--second",
+          start:"-2000px top",
+          end:"top",
+          scrub: true,
+          markers:true
+        }
+      });
+      tl.fromTo(camera.current.position,{x:-4.5,y:10,z:13}, {x:3.5,y:5.5,z:5,duration:5});
+      tl.fromTo(".my-work",{borderTopLeftRadius:1000}, {duration:3, borderTopLeftRadius:0}, "-=1");
+      //progress bar for my-work section
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".my-work",
+          start:"top top",
+          end:"bottom bottom",
+          pin:".my-work .progress-bar-wrapper .progress-bar",
+          pinSpacing:false,
+          scrub: true,
+        }
+      });
+      tl.fromTo(".my-work .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
+      //camera + contact-me + floor 3
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".section-margin.--third",
+          start:"-2000px top",
+          end:"bottom",
+          scrub: true,
+        }
+      });
+      tl.fromTo(camera.current.position, {x:3.5,y:5.5,z:5,duration:5},{x:-2,y:3,z:8,duration:3});
+      tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5});
+      tl.fromTo(".contact-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
+      //progress bar for contact-me section
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".contact-me",
+          start:"top top",
+          end:"bottom bottom",
+          pin:".contact-me .progress-bar-wrapper .progress-bar",
+          pinSpacing:false,
+          scrub: true,
+        }
+      });
+      tl.fromTo(".contact-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
+      //model animation for contact-me section
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".contact-me",
+          start:"top",
+          end:"bottom",
+          markers:true
+        }
+      });
+      tl.fromTo(walk.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+      tl.fromTo(walkPlates.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+      tl.fromTo(flowers.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+      tl.fromTo(mailBox.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+      tl.fromTo(stone1.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
+      tl.fromTo(stone2.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
     });
-    tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
-    //camera + my-work section
-    tl = gsap.timeline({
-      scrollTrigger:{
-        trigger:".section-margin.--second",
-        start:"-2000px top",
-        end:"top",
-        scrub: true,
-        markers:true
-      }
-    });
-    tl.fromTo(camera.current.position,{x:-4.5,y:10,z:13}, {x:3.5,y:5.5,z:5,duration:5});
-    tl.fromTo(".my-work",{borderTopLeftRadius:1000}, {duration:3, borderTopLeftRadius:0}, "-=1");
-    //camera + contact-me + floor 3
-    tl = gsap.timeline({
-      scrollTrigger:{
-        trigger:".section-margin.--third",
-        start:"-2000px top",
-        end:"bottom",
-        scrub: true,
-        markers:true
-      }
-    });
-    tl.fromTo(camera.current.position, {x:3.5,y:5.5,z:5,duration:5},{x:-2,y:3,z:8,duration:3});
-    tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5});
-    tl.fromTo(".contact-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
-    tl = gsap.timeline({
-      scrollTrigger:{
-        trigger:".contact-me",
-        start:"top",
-        end:"bottom",
-        markers:true
-      }
-    });
-    tl.fromTo(walk.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
-    tl.fromTo(walkPlates.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
-    tl.fromTo(flowers.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
-    tl.fromTo(mailBox.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
-    tl.fromTo(stone1.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
-    tl.fromTo(stone2.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
-  });
 
-  mm.current.add(
+    mm.current.add(
       "(max-width: 969px)",() => {
-    //setting camera to middle
-    let tl = gsap.timeline({
-      scrollTrigger:{
-      trigger:".hero",
-      start:"-1500px top",
-      end:"top",
-      scrub: true,
-    }
-  });
-  tl.to(camera.current.position,{x:0,y:14,z:18});
-  //camera + floor 1 animation
-  tl = gsap.timeline({
-    scrollTrigger:{
-      trigger:".hero",
-      start:"bottom",
-      end:"3000px",
-      scrub: true,
-    }
-  });
-  tl.fromTo(camera.current.position,{x:0,y:14,z:18},{x:0,y:9,z:10, duration:5});
-  tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:15});
-  //about-me radius animation
-  tl = gsap.timeline({
-    scrollTrigger:{
-      trigger:".section-margin.--first",
-      start:"-1500px top",
-      end:"top",
-      scrub: true,
-      markers:true
-    }
-  });
-  tl.fromTo(".about-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
-   //camera movement + floor 2 animation
-  tl = gsap.timeline({
-    scrollTrigger:{
-      trigger:".section-margin.--second",
-      start:"-3000px top",
-      end:"top",
-      scrub: true,
-      markers:true
-    }
-  });
-  tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:8});
-  tl.fromTo(camera.current.position,{x:0,y:9,z:10}, {x:2.5,y:5,z:5,duration:10});
-  //my-work radius animation
-  tl = gsap.timeline({
-    scrollTrigger:{
-      trigger:".section-margin.--second",
-      start:"-1500px top",
-      end:"top",
-      scrub: true,
-      markers:true
-    }
-  });
-  tl.fromTo(".my-work",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
-  //camera + contact-me + floor 3
-  tl = gsap.timeline({
-    scrollTrigger:{
-      trigger:".section-margin.--third",
-      start:"-3000px top",
-      end:"-500px bottom",
-      scrub: true,
-      markers:true
-    }
-  });
-  tl.fromTo(camera.current.position, {x:2.5,y:5,z:5,duration:5},{x:-1,y:3,z:10,duration:3});
-  tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5});
+        //setting camera to middle
+        let tl = gsap.timeline({
+          scrollTrigger:{
+          trigger:".hero",
+          start:"-1500px top",
+          end:"top",
+          scrub: true,
+        }
+      });
+      tl.to(camera.current.position,{x:0,y:14,z:18});
+      //camera + floor 1 animation
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".hero",
+          start:"bottom",
+          end:"3000px",
+          scrub: true,
+        }
+      });
+      tl.fromTo(camera.current.position,{x:0,y:14,z:18},{x:0,y:9,z:10, duration:5});
+      tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:15});
+      //about-me radius animation
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".section-margin.--first",
+          start:"-1500px top",
+          end:"top",
+          scrub: true,
+          markers:true
+        }
+      });
+      tl.fromTo(".about-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
+      //progress bar for about-me section
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".about-me",
+          start:"top top",
+          end:"bottom bottom",
+          pin:".about-me .progress-bar-wrapper .progress-bar",
+          pinSpacing:false,
+          scrub: true,
+        }
+      });
+      tl.fromTo(".about-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
+      //camera movement + floor 2 animation
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".section-margin.--second",
+          start:"-3000px top",
+          end:"top",
+          scrub: true,
+          markers:true
+        }
+      });
+      tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:8});
+      tl.fromTo(camera.current.position,{x:0,y:9,z:10}, {x:2.5,y:5,z:5,duration:10});
+      //my-work radius animation
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".section-margin.--second",
+          start:"-1500px top",
+          end:"top",
+          scrub: true,
+          markers:true
+        }
+      });
+      tl.fromTo(".my-work",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
+      //progress bar for my-work section
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".my-work",
+          start:"top top",
+          end:"bottom bottom",
+          pin:".my-work .progress-bar-wrapper .progress-bar",
+          pinSpacing:false,
+          scrub: true,
+        }
+      });
+      tl.fromTo(".my-work .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
+      //camera + contact-me + floor 3
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".section-margin.--third",
+          start:"-3000px top",
+          end:"-500px bottom",
+          scrub: true,
+          markers:true
+        }
+      });
+      tl.fromTo(camera.current.position, {x:2.5,y:5,z:5,duration:5},{x:-1,y:3,z:10,duration:3});
+      tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5});
+      //contact-me radius animation
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".section-margin.--third",
+          start:"-1500px top",
+          end:"top",
+          scrub: true,
+        }
+      });
+      tl.fromTo(".contact-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
+      //progress bar for contact-me section
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".contact-me",
+          start:"top top",
+          end:"bottom bottom",
+          pin:".contact-me .progress-bar-wrapper .progress-bar",
+          pinSpacing:false,
+          scrub: true,
+        }
+      });
+      tl.fromTo(".contact-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
+      //model animation for contact-me section
+      tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:".section-margin.--third",
+          start:"-1400px top",
+          end:"bottom",
+          markers:true
+        }
+      });
+      tl.fromTo(walk.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+      tl.fromTo(walkPlates.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+      tl.fromTo(flowers.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+      tl.fromTo(mailBox.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
+      tl.fromTo(stone1.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
+      tl.fromTo(stone2.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
 
-  //contact-me models
-  tl = gsap.timeline({
-    scrollTrigger:{
-      trigger:".section-margin.--third",
-      start:"-1400px top",
-      end:"bottom",
-      markers:true
-    }
-  });
-  tl.fromTo(walk.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
-  tl.fromTo(walkPlates.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
-  tl.fromTo(flowers.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
-  tl.fromTo(mailBox.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
-  tl.fromTo(stone1.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
-  tl.fromTo(stone2.current.scale, {x:0, y:0, z:0}, {x:0.14,y:0.14,z:0.14,duration:0.5});
+      // camera movement + mywork section radius
+    });
 
-  //contact-me radius animation
-  tl = gsap.timeline({
-    scrollTrigger:{
-      trigger:".section-margin.--third",
-      start:"-1500px top",
-      end:"top",
-      scrub: true,
-    }
-  });
-  tl.fromTo(".contact-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
-  // camera movement + mywork section radius
-  });
-
-  });
-
-  // #cef5ba
-  // #A2D2A0
-// 
-// 
-// 
-// 
-// 
-// #A0C3D2
-// 
-//   
+  }); 
   return (
     <>
     {/* Floors with are used as backgrond change */}
