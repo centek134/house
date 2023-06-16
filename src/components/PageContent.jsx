@@ -39,9 +39,10 @@ export const PageContent = () => {
             <div className="detail">
               <h3 className="detail__header">Software skills</h3>
               <ul className="detail__skills-list">
-                <li className="list__item">HTML5, CSS3, JavaScript, Typescript, Rest API</li>
+                <li className="list__item">HTML5, CSS3, SASS, BEM</li>
+                <li className="list__item">JavaScript, Typescript, Rest API, Three.js</li>
                 <li className="list__item">React, React Router</li>
-                <li className="list__item">Jira, Github, AEM, Blender 3.5</li>
+                <li className="list__item">Jira, Github, AEM, Agile methodology</li>
               </ul>
             </div>
             <div className="detail">
