@@ -6,8 +6,7 @@
 import React, { useRef, useLayoutEffect, useState } from "react";
 import { useGLTF, Circle } from "@react-three/drei";
 import {gsap} from "gsap"
-import { ScrollTrigger } from "gsap/all";
-
+import { ScrollTrigger} from "gsap/all";
 export const House = (props) => {
   const { nodes, materials } = useGLTF("/House.gltf");
   const scale1 = useRef();
@@ -31,30 +30,32 @@ export const House = (props) => {
 
 
   useLayoutEffect(()=> {
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
     mm.current = gsap.matchMedia();
     //======================TIMELINE "(min-width: 1500px)" ============================
     mm.current.add(
       "(min-width: 1500px)",() => {
-        //popping up elements
-        let tl = gsap.timeline();
-        tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1});
-        tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1});
-        tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1});
-        tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1});
-        tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1});
-        tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1});
-        tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1});
         //setting up camera to middle
-        tl = gsap.timeline({
+        let tl = gsap.timeline({
           scrollTrigger:{
             trigger:".hero",
             start:"-1500px top",
             end:"top",
-            scrub: true,
+            scrub: true
           }
         });
         tl.to(camera.current.position,{x:0,y:10,z:13});
+        //popping up elements
+        tl = gsap.timeline();
+        tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
+        tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75});
+        tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(".info__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
+        tl.fromTo(".info__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
         //floor 1 animation
         tl = gsap.timeline({
           scrollTrigger:{
@@ -62,6 +63,7 @@ export const House = (props) => {
             start:"bottom",
             end:"2500px",
             scrub: true,
+            markers:true
           }
         });
         tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
@@ -71,7 +73,7 @@ export const House = (props) => {
             trigger:".section-margin.--first",
             start:"-1500px top",
             end:"top",
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(camera.current.position,{x:0,y:10,z:13}, {x:-7,duration:3});
@@ -85,6 +87,7 @@ export const House = (props) => {
             pin:".about-me .progress-bar-wrapper .progress-bar",
             pinSpacing:false,
             scrub: true,
+            markers:true
           }
         });
         tl.fromTo(".about-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -94,7 +97,7 @@ export const House = (props) => {
             trigger:".section-margin.--second",
             start:"-3000px top",
             end:"top",
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
@@ -104,7 +107,7 @@ export const House = (props) => {
             trigger:".section-margin.--second",
             start:"-2000px top",
             end:"top",
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(camera.current.position,{x:-7},{x:3.5,y:4.5,z:3,duration:5});
@@ -117,8 +120,7 @@ export const House = (props) => {
             end:"bottom bottom",
             pin:".my-work .progress-bar-wrapper .progress-bar",
             pinSpacing:false,
-            markers:true,
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(".my-work .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -128,7 +130,7 @@ export const House = (props) => {
             trigger:".section-margin.--third",
             start:"-2000px top",
             end:"top",
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(camera.current.position,{x:3.5,y:4.5,z:3},{x:-2.5,y:3,z:7,duration:3});
@@ -142,8 +144,7 @@ export const House = (props) => {
             end:"bottom bottom",
             pin:".contact-me .progress-bar-wrapper .progress-bar",
             pinSpacing:false,
-            markers:true,
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(".contact-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -152,7 +153,7 @@ export const House = (props) => {
           scrollTrigger:{
             trigger:".contact-me",
             start:"top",
-            end:"bottom",
+            end:"bottom"
           }
         });
         tl.fromTo(walk.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
@@ -172,18 +173,28 @@ export const House = (props) => {
             trigger:".hero",
             start:"-1500px top",
             end:"top",
-            scrub: true,
+            scrub: true
           }
         });
         tl.to(camera.current.position,{x:0,y:10,z:13});
+        //popping up elements
+        tl = gsap.timeline();
+        tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
+        tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75});
+        tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(".info__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
+        tl.fromTo(".info__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
         //floor 1 animation
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".hero",
             start:"bottom",
             end:"2500px",
-            scrub: true,
-            markers:true
+            scrub: true
           }
         });
         tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
@@ -193,7 +204,7 @@ export const House = (props) => {
             trigger:".section-margin.--first",
             start:"-1500px top",
             end:"top",
-            scrub: true,
+            scrub: true
           }
         });
         tl.to(camera.current.position, {x:-5.5,duration:5});
@@ -206,7 +217,7 @@ export const House = (props) => {
             end:"bottom bottom",
             pin:".about-me .progress-bar-wrapper .progress-bar",
             pinSpacing:false,
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(".about-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -216,7 +227,7 @@ export const House = (props) => {
             trigger:".section-margin.--second",
             start:"-3000px top",
             end:"top",
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
@@ -226,7 +237,7 @@ export const House = (props) => {
             trigger:".section-margin.--second",
             start:"-2000px top",
             end:"top",
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(camera.current.position,{x:-5.5,y:10,z:13}, {x:3.5,y:5,z:4,duration:5});
@@ -239,7 +250,7 @@ export const House = (props) => {
             end:"bottom bottom",
             pin:".my-work .progress-bar-wrapper .progress-bar",
             pinSpacing:false,
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(".my-work .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -249,7 +260,7 @@ export const House = (props) => {
             trigger:".section-margin.--third",
             start:"-2000px top",
             end:"bottom",
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(camera.current.position, {x:3.5,y:5,z:4,duration:5},{x:-2,y:3,z:7,duration:3});
@@ -263,7 +274,7 @@ export const House = (props) => {
             end:"bottom bottom",
             pin:".contact-me .progress-bar-wrapper .progress-bar",
             pinSpacing:false,
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(".contact-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -272,8 +283,7 @@ export const House = (props) => {
           scrollTrigger:{
             trigger:".contact-me",
             start:"top",
-            end:"bottom",
-            markers:true
+            end:"bottom"
           }
         });
         tl.fromTo(walk.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
@@ -292,18 +302,28 @@ export const House = (props) => {
             trigger:".hero",
             start:"-1500px top",
             end:"top",
-            scrub: true,
+            scrub: true
           }
         });
         tl.to(camera.current.position,{x:0,y:10,z:13});
+        //popping up elements
+        tl = gsap.timeline();
+        tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
+        tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75});
+        tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+        tl.fromTo(".info__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
+        tl.fromTo(".info__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
         //floor 1 animation
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".hero",
             start:"bottom",
             end:"2500px",
-            scrub: true,
-            markers:true
+            scrub: true
           }
         });
         tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
@@ -313,7 +333,7 @@ export const House = (props) => {
           trigger:".section-margin.--first",
           start:"-1500px top",
           end:"top",
-          scrub: true,
+          scrub: true
         }
       });
       tl.to(camera.current.position, {x:-4.5,duration:5});
@@ -326,7 +346,7 @@ export const House = (props) => {
           end:"bottom bottom",
           pin:".about-me .progress-bar-wrapper .progress-bar",
           pinSpacing:false,
-          scrub: true,
+          scrub: true
         }
       });
       tl.fromTo(".about-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -336,8 +356,7 @@ export const House = (props) => {
           trigger:".section-margin.--second",
           start:"-3000px top",
           end:"top",
-          scrub: true,
-          markers:true
+          scrub: true
         }
       });
       tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
@@ -347,8 +366,7 @@ export const House = (props) => {
           trigger:".section-margin.--second",
           start:"-2000px top",
           end:"top",
-          scrub: true,
-          markers:true
+          scrub: true
         }
       });
       tl.fromTo(camera.current.position,{x:-4.5,y:10,z:13}, {x:3.5,y:5.5,z:5,duration:5});
@@ -361,7 +379,7 @@ export const House = (props) => {
           end:"bottom bottom",
           pin:".my-work .progress-bar-wrapper .progress-bar",
           pinSpacing:false,
-          scrub: true,
+          scrub: true
         }
       });
       tl.fromTo(".my-work .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -371,7 +389,7 @@ export const House = (props) => {
           trigger:".section-margin.--third",
           start:"-2000px top",
           end:"bottom",
-          scrub: true,
+          scrub: true
         }
       });
       tl.fromTo(camera.current.position, {x:3.5,y:5.5,z:5,duration:5},{x:-2,y:3,z:8,duration:3});
@@ -385,7 +403,7 @@ export const House = (props) => {
           end:"bottom bottom",
           pin:".contact-me .progress-bar-wrapper .progress-bar",
           pinSpacing:false,
-          scrub: true,
+          scrub: true
         }
       });
       tl.fromTo(".contact-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -394,8 +412,7 @@ export const House = (props) => {
         scrollTrigger:{
           trigger:".contact-me",
           start:"top",
-          end:"bottom",
-          markers:true
+          end:"bottom"
         }
       });
       tl.fromTo(walk.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
@@ -414,17 +431,28 @@ export const House = (props) => {
           trigger:".hero",
           start:"-1500px top",
           end:"top",
-          scrub: true,
+          scrub: true
         }
       });
       tl.to(camera.current.position,{x:0,y:14,z:18});
+      //popping up elements
+      tl = gsap.timeline();
+      tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
+      tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75});
+      tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+      tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+      tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+      tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+      tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
+      tl.fromTo(".info__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
+      tl.fromTo(".info__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
       //camera + floor 1 animation
       tl = gsap.timeline({
         scrollTrigger:{
           trigger:".hero",
           start:"bottom",
           end:"3000px",
-          scrub: true,
+          scrub: true
         }
       });
       tl.fromTo(camera.current.position,{x:0,y:14,z:18},{x:0,y:9,z:10, duration:5});
@@ -435,8 +463,7 @@ export const House = (props) => {
           trigger:".section-margin.--first",
           start:"-1500px top",
           end:"top",
-          scrub: true,
-          markers:true
+          scrub: true
         }
       });
       tl.fromTo(".about-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
@@ -448,7 +475,7 @@ export const House = (props) => {
           end:"bottom bottom",
           pin:".about-me .progress-bar-wrapper .progress-bar",
           pinSpacing:false,
-          scrub: true,
+          scrub: true
         }
       });
       tl.fromTo(".about-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -458,20 +485,18 @@ export const House = (props) => {
           trigger:".section-margin.--second",
           start:"-3000px top",
           end:"top",
-          scrub: true,
-          markers:true
+          scrub: true
         }
       });
-      tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:8});
-      tl.fromTo(camera.current.position,{x:0,y:9,z:10}, {x:2.5,y:5,z:5,duration:10});
+      tl.fromTo(camera.current.position,{x:0,y:9,z:10}, {x:2.5,y:5,z:5,duration:4});
+      tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:45,y:45,z:0.05,duration:8});
       //my-work radius animation
       tl = gsap.timeline({
         scrollTrigger:{
           trigger:".section-margin.--second",
           start:"-1500px top",
           end:"top",
-          scrub: true,
-          markers:true
+          scrub: true
         }
       });
       tl.fromTo(".my-work",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
@@ -483,7 +508,7 @@ export const House = (props) => {
           end:"bottom bottom",
           pin:".my-work .progress-bar-wrapper .progress-bar",
           pinSpacing:false,
-          scrub: true,
+          scrub: true
         }
       });
       tl.fromTo(".my-work .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -493,8 +518,7 @@ export const House = (props) => {
           trigger:".section-margin.--third",
           start:"-3000px top",
           end:"-500px bottom",
-          scrub: true,
-          markers:true
+          scrub: true
         }
       });
       tl.fromTo(camera.current.position, {x:2.5,y:5,z:5,duration:5},{x:-1,y:3,z:10,duration:3});
@@ -505,7 +529,7 @@ export const House = (props) => {
           trigger:".section-margin.--third",
           start:"-1500px top",
           end:"top",
-          scrub: true,
+          scrub: true
         }
       });
       tl.fromTo(".contact-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
@@ -517,7 +541,7 @@ export const House = (props) => {
           end:"bottom bottom",
           pin:".contact-me .progress-bar-wrapper .progress-bar",
           pinSpacing:false,
-          scrub: true,
+          scrub: true
         }
       });
       tl.fromTo(".contact-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -526,8 +550,7 @@ export const House = (props) => {
         scrollTrigger:{
           trigger:".section-margin.--third",
           start:"-1400px top",
-          end:"bottom",
-          markers:true
+          end:"bottom"
         }
       });
       tl.fromTo(walk.current.scale, {x:0, y:0, z:0}, {x:1,y:1,z:1,duration:0.5});
@@ -564,8 +587,6 @@ export const House = (props) => {
             <mesh castShadow geometry={nodes.Cube_2.geometry} material={materials.houseshadow} />
             <mesh castShadow geometry={nodes.Cube_3.geometry} material={materials.houseshadow} />
           </group>
-          <mesh geometry={nodes.carpet.geometry} material={materials.carpet} position={[1.37, 0.076, 0.686]} />
-          <mesh castShadow geometry={nodes.poster.geometry} material={materials.Material} position={[-3.085, 2.39, -1.425]} rotation={[0, 0, -Math.PI / 2]} />
           <mesh castShadow geometry={nodes.windowPlane.geometry} material={materials["Material.008"]} position={[-1.678, 2.902, -2.612]} rotation={[Math.PI / 2, 0, 0]} />
         </group>
         <group ref={scale2}>
@@ -578,7 +599,6 @@ export const House = (props) => {
             <mesh castShadow geometry={nodes.Cube007_5.geometry} material={materials.bedMattress} />
             <mesh castShadow geometry={nodes.Cube007_6.geometry} material={materials.bedPillow} />
           </group>
-          <mesh castShadow geometry={nodes.cat.geometry} material={materials["Material.004"]} position={[-0.824, 0.769, -1.332]} />
         </group>
         <group ref={scale3}>
           <group position={[1.985, 1.206, -1.601]}>
@@ -630,7 +650,9 @@ export const House = (props) => {
             <mesh castShadow geometry={nodes.Cube035_1.geometry} material={materials.shelf} />
           </group>
         </group>
-        <group ref={scale5}>
+        <group ref={scale7}>
+        <mesh geometry={nodes.carpet.geometry} material={materials.carpet} position={[1.37, 0.076, 0.686]} />
+          <mesh castShadow geometry={nodes.poster.geometry} material={materials.Material} position={[-3.085, 2.39, -1.425]} rotation={[0, 0, -Math.PI / 2]} />
           <group position={[1.071, 3.967, -2.135]} rotation={[0, -0.333, 0]}>
             <mesh castShadow geometry={nodes.Cube039.geometry} material={materials["bookPage.003"]} />
             <mesh castShadow geometry={nodes.Cube039_1.geometry} material={materials["bookCover.003"]} />
@@ -682,7 +704,14 @@ export const House = (props) => {
           <mesh castShadow geometry={nodes.Circle001.geometry} material={materials["three-js-triangle"]} position={[0.896, 3.307, -2.296]} rotation={[0.589, -1.147, -1.024]} scale={0.317} />
           <mesh castShadow geometry={nodes.Circle002.geometry} material={materials["three-js-triangle"]} position={[0.847, 3.323, -2.277]} rotation={[0.589, -1.147, -1.024]} scale={0.317} />
           <mesh castShadow geometry={nodes.Circle003.geometry} material={materials["three-js-triangle"]} position={[0.858, 3.268, -2.281]} rotation={[1.889, 0.696, -0.475]} scale={0.317} />
+          <mesh castShadow geometry={nodes.cardboard.geometry} material={materials.cardboard} position={[-2.497, 3.35, 2.002]} rotation={[Math.PI, -1.029, Math.PI]} />
+          <group position={[-2.401, 3.187, 1.305]} rotation={[0, -0.654, 0]}>
+            <mesh castShadow geometry={nodes.Cube022.geometry} material={materials.box} />
+            <mesh castShadow geometry={nodes.Cube022_1.geometry} material={materials["box-cover"]} />
+          </group>
+          <mesh castShadow geometry={nodes.cat.geometry} material={materials["Material.004"]} position={[-0.824, 0.769, -1.332]} />
         </group>
+        
         <group ref={scale6}>
           <group position={[-0.371, 0.474, 2.129]} rotation={[Math.PI / 2, 0, 1.531]}>
             <mesh castShadow geometry={nodes.Cylinder005.geometry} material={materials.bar} />
@@ -700,17 +729,12 @@ export const House = (props) => {
             <mesh castShadow geometry={nodes.Cylinder013_1.geometry} material={materials["plate.005"]} />
           </group>
         </group>
-        <group ref={scale7}>
+        <group ref={scale5}>
           <group position={[-1.912, 0.411, 1.677]} rotation={[0, Math.PI / 2, 0]}>
             <mesh castShadow geometry={nodes.Sphere011.geometry} material={materials["drawer.002"]} />
             <mesh castShadow geometry={nodes.Sphere011_1.geometry} material={materials["frames.001"]} />
             <mesh castShadow geometry={nodes.Sphere011_2.geometry} material={materials["wardrobe.001"]} />
             <mesh castShadow geometry={nodes.Sphere011_3.geometry} material={materials["Material.007"]} />
-          </group>
-          <mesh castShadow geometry={nodes.cardboard.geometry} material={materials.cardboard} position={[-2.497, 3.35, 2.002]} rotation={[Math.PI, -1.029, Math.PI]} />
-          <group position={[-2.401, 3.187, 1.305]} rotation={[0, -0.654, 0]}>
-            <mesh castShadow geometry={nodes.Cube022.geometry} material={materials.box} />
-            <mesh castShadow geometry={nodes.Cube022_1.geometry} material={materials["box-cover"]} />
           </group>
           <group position={[-2.189, 0.772, 0.115]}>
             <mesh castShadow geometry={nodes.Cylinder003.geometry} material={materials.legs} />
