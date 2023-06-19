@@ -3,7 +3,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 
-import React, { useRef, useLayoutEffect, useState } from "react";
+import React, { useRef, useLayoutEffect} from "react";
 import { useGLTF, Circle } from "@react-three/drei";
 import {gsap} from "gsap"
 import { ScrollTrigger} from "gsap/all";
@@ -48,14 +48,15 @@ export const House = (props) => {
         //popping up elements
         tl = gsap.timeline();
         tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
-        tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75});
-        tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(".info__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
-        tl.fromTo(".info__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+        tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6});
+        tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(".first__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
+        tl.fromTo(".first__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+        tl.fromTo(".second__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
         //floor 1 animation
         tl = gsap.timeline({
           scrollTrigger:{
@@ -180,14 +181,15 @@ export const House = (props) => {
         //popping up elements
         tl = gsap.timeline();
         tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
-        tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75});
-        tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(".info__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
-        tl.fromTo(".info__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+        tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6});
+        tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(".first__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
+        tl.fromTo(".first__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+        tl.fromTo(".second__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
         //floor 1 animation
         tl = gsap.timeline({
           scrollTrigger:{
@@ -309,14 +311,15 @@ export const House = (props) => {
         //popping up elements
         tl = gsap.timeline();
         tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
-        tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75});
-        tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-        tl.fromTo(".info__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
-        tl.fromTo(".info__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+        tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6});
+        tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+        tl.fromTo(".first__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
+        tl.fromTo(".first__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+        tl.fromTo(".second__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
         //floor 1 animation
         tl = gsap.timeline({
           scrollTrigger:{
@@ -438,14 +441,15 @@ export const House = (props) => {
       //popping up elements
       tl = gsap.timeline();
       tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
-      tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75});
-      tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-      tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-      tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-      tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-      tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.75},"-=0.2");
-      tl.fromTo(".info__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
-      tl.fromTo(".info__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+      tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6});
+      tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+      tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+      tl.fromTo(scale5.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+      tl.fromTo(scale6.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+      tl.fromTo(scale7.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
+      tl.fromTo(".first__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
+      tl.fromTo(".first__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+      tl.fromTo(".second__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
       //camera + floor 1 animation
       tl = gsap.timeline({
         scrollTrigger:{
