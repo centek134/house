@@ -1,22 +1,49 @@
 .hero{
     position: relative;
     max-width: 1200px;
-    margin: 0 auto;
     min-height: 100vh;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
 }
-.hero__info{
+.hero__first{
     position: absolute;
     bottom: 30%;
 }
-.hero .info__name{
-    font-family: 'Montserrat', sans-serif;
+.hero .first__name{
     font-size: 70px;
     color: #1d100f;
     text-shadow: #ffb94f 4px 4px 0px;
-    
 }
-.hero .info__title{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+.hero .first__title{
     font-size: 26px;
+}
+.hero__second{
+    position: absolute;
+    top: 35%;
+    right: 0;
+    width: 300px
+}
+.second__title{
+    font-size: 35px;
+}
+.hero__arrow{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(0,-50%);
+    width: 20px;
+    height: 20px;
+    animation: arrowMovement linear 0.7s infinite;
+}
+
+@keyframes arrowMovement {
+    0%{
+        top: 90%;
+    }
+    50%{
+        top: 91%;
+    }
+    100%{
+        top: 90%;
+    }
 }

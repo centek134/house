@@ -8,6 +8,9 @@ export const PageContent = () => {
     <main className="page-wrapper">
       <div className="section-margin --first"></div>
       <section className="about-me section --left">
+          <div className="progress-bar-wrapper --scroll-left">
+            <div className="progress-bar --pink-scroll"></div>
+          </div>
           <article className="section__intro-wrapper --pink-border">
               <h2 className="intro-wrapper__title"><span className="intro-wrapper__title__text --pink-text">ABOUT ME</span></h2> 
               <div className="intro-wrapper__decoration --style-one --pink-background --pink-border"></div>
@@ -22,6 +25,9 @@ export const PageContent = () => {
       </section>
       <div className="section-margin --second"></div>
       <section className="my-work section --right">
+          <div className="progress-bar-wrapper --scroll-right">
+            <div className="progress-bar --purple-scroll"></div>
+          </div>
           <article className="section__intro-wrapper --purple-border">
               <h2 className="intro-wrapper__title"><span className="intro-wrapper__title__text --purple-text">WORK & SKILLS</span></h2>
               <div className="intro-wrapper__decoration --style-one --purple-background --purple-border"></div>
@@ -33,9 +39,10 @@ export const PageContent = () => {
             <div className="detail">
               <h3 className="detail__header">Software skills</h3>
               <ul className="detail__skills-list">
-                <li className="list__item">HTML5, CSS3, JavaScript, Typescript, Rest API</li>
+                <li className="list__item">HTML5, CSS3, SASS, BEM</li>
+                <li className="list__item">JavaScript, Typescript, Rest API, Three.js</li>
                 <li className="list__item">React, React Router</li>
-                <li className="list__item">Jira, Github, AEM, Blender 3.5</li>
+                <li className="list__item">Jira, Github, AEM, Agile methodology</li>
               </ul>
             </div>
             <div className="detail">
@@ -55,12 +62,14 @@ export const PageContent = () => {
                 <li className="list__item">Samsung Galaxy <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-s23/" target="__blank">S23</a> & <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-s23-ultra/" target="__blank">S23 Ultra</a></li>
               </ul>
             </div>
-
             <p className="detail-wrapper__text"></p>
           </article>
       </section>
       <div className="section-margin --third"></div>
       <section className="contact-me section --left">
+          <div className="progress-bar-wrapper --scroll-left">
+            <div className="progress-bar --green-scroll"></div>
+          </div>
           <article className="section__intro-wrapper --green-border">
               <h2 className="intro-wrapper__title"><span className="intro-wrapper__title__text --green-text">CONTACT ME</span></h2>
               <div className="intro-wrapper__decoration --style-one --green-background --green-border"></div>

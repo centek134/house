@@ -3,6 +3,21 @@
     width: 50%;
     padding: 800px 50px 0 80px;
     background-color: #FFFBEB;
+    overflow: hidden;
+}
+.progress-bar-wrapper{
+    position: absolute;
+    width: 12px;
+    height: 100%;
+    top: 0;
+    overflow: hidden;
+}
+.progress-bar{
+    height: 100vh;
+    width: 100%;
+    background-color: var(--hot-pink);
+    transform-origin: top center;
+    transform: scaleY(1);
 }
 .section__intro-wrapper{
     position: relative;
@@ -114,9 +129,22 @@
     background-color: var(--green);
 }
 
+.--green-scroll{
+    background-color: var(--green);
+}
+.--pink-scroll{
+    background-color: var(--hot-pink);
+}
+.--purple-scroll{
+    background-color: var(--purple);
+}
 
-
-
+.--scroll-left{
+    left: 0;
+}
+.--scroll-right{
+    right: 0;
+}
 
 @media screen and (max-width:968px){
     .section{
