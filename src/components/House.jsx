@@ -57,6 +57,7 @@ export const House = (props) => {
         tl.fromTo(".first__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
         tl.fromTo(".first__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
         tl.fromTo(".second__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+        tl.fromTo(".hero__arrow", {opacity:0},{opacity:1,duration:0.75});
         //floor 1 animation
         tl = gsap.timeline({
           scrollTrigger:{
@@ -64,17 +65,16 @@ export const House = (props) => {
             start:"bottom",
             end:"2500px",
             scrub: true,
-            markers:true
           }
         });
-        tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:10});
+        tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:1});
         //camera movement + about-me section radius
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".section-margin.--first",
             start:"-1500px top",
             end:"top",
-            scrub: true
+            scrub: true,
           }
         });
         tl.fromTo(camera.current.position,{x:0,y:10,z:13}, {x:-7,duration:3});
@@ -566,17 +566,20 @@ export const House = (props) => {
     });
   }); 
 
+// #F75C03
+// 9fdbf5
+//   
   return (
     <>
       {/* Floors with are used as backgrond change */}
       <Circle ref={floor1} scale={0} rotation={[-0.5 * Math.PI, 0, 0]} position={[0, -0.58, 0]}>
-        <meshStandardMaterial color={"#9fdbf5"} attach={"material"} opacity={1} />
+        <meshStandardMaterial color={"#eb688f"} attach={"material"} opacity={1} />
       </Circle>
       <Circle ref={floor2} scale={0} rotation={[-0.5 * Math.PI, 0, 0]} position={[0, -0.56, 0]}>
-        <meshStandardMaterial color={"#adf589"} attach={"material"} opacity={1} />
+        <meshStandardMaterial color={"#7161ef"} attach={"material"} opacity={1} />
       </Circle>
       <Circle ref={floor3} scale={0} rotation={[-0.5 * Math.PI, 0, 0]} position={[0, -0.52, 0]}>
-        <meshStandardMaterial color={"#f59f9f"} attach={"material"} opacity={1} />
+        <meshStandardMaterial color={"#00c46f"} attach={"material"} opacity={1} />
       </Circle>
       {/* Floor used for shadows */}
       <mesh rotation={[-0.5 * Math.PI, 0, -0.7]} position={[0, -0.5, 0]} receiveShadow >

@@ -10,7 +10,7 @@ export const Hero = () => {
         <div className="hero__second">
           <p className="second__title">TOMASZOSUCH PORTFOLIO</p>
         </div>
-          <img className="hero__arrow" src={ArrowDown}/>
+        <img className="hero__arrow" src={ArrowDown}/>
     </section>
   );
 };
