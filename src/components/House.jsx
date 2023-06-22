@@ -11,12 +11,13 @@ import { ScrollTrigger} from "gsap/all";
 export const House = (props) => {
   const { nodes, materials } = useGLTF('/House.gltf')
   const scale1 = useRef();
-  const scale2= useRef();
+  const scale2 = useRef();
   const scale3 = useRef();
-  const scale4= useRef();
+  const scale4 = useRef();
   const scale5 = useRef();
-  const scale6= useRef();
-  const scale7= useRef();
+  const scale6 = useRef();
+  const scale7 = useRef();
+  const loader = useRef();
   const mm = useRef();
   const floor1 = useRef();
   const floor2 = useRef();
@@ -45,9 +46,26 @@ export const House = (props) => {
           }
         });
         tl.to(camera.current.position,{x:0,y:10,z:13});
-        //popping up elements
+        /*
+        popping up elements scale for loader [2.9,2.5,2.8]   original position -0.535, 2.039, -0.146
+        last loader position needs to be {x:-0.535,y:2.039,z:-0.146, duration:1.2}
+        rotation at end   tl.to(loader.current.rotation, {x:0,y:12.56,z:0, duration:1.2},"-=1.2")
+        scale tl.to(loader.current.scale,{x:2.9,y:2.5,z:2.8,duration:0.7});
+        original scale scale={[0.38, 0.303, 0.364]}
+        original position -0.535, 2.039, -0.146
+
+        */
+
         tl = gsap.timeline();
-        tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
+        tl.to(loader.current.scale, {x:0.49, y:0.39, z:0.47, duration:0.7})
+        tl.to(loader.current.position,{x:-3.5,y:0.6,z:2, ease:true, duration:1});
+        tl.to(".title__item", {opacity:1, stagger:-0.02}, "-=0.9");
+        tl.to(".title__item", {opacity:0, stagger:0.02},"+=1");
+        tl.to(loader.current.rotation, {x:0,y:6.28,z:0, duration:0.8},"+=0.5")
+        tl.to(loader.current.scale,{x:2.9,y:2.5,z:2.8,duration:0.8}, "-=0.8");
+        tl.to(loader.current.position,{x:-0.535,y:2.039,z:-0.146, duration:0.8}, "-=0.8");
+        tl.to(loader.current.scale,{x:0,y:0,z:0, duration:1},"+=0.5");
+        tl.to(scale1.current.scale,{x:1,y:1,z:1,duration:0.01},"<");
         tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6});
         tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
         tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
@@ -581,11 +599,11 @@ export const House = (props) => {
       </Circle>
       {/* Floor used for shadows */}
       <mesh rotation={[-0.5 * Math.PI, 0, -0.7]} position={[0, -0.5, 0]} receiveShadow >
-        <planeGeometry attach={"geometry"} args={[9, 9, 1, 1]} />
+        <planeGeometry attach={"geometry"} args={[9.6, 9.6, 1, 1]} />
         <shadowMaterial  attach={"material"} opacity={0.2} />
       </mesh>
       <group rotation={[0,-0.7,0]} {...props} dispose={null}>
-        <group ref={scale1}>
+        <group ref={scale1} scale={[0,0,0]}>
           <group position={[-1.433, 1.794, -1.408]}>
             <mesh receiveShadow geometry={nodes.Cube.geometry} material={materials.house} />
             <mesh receiveShadow geometry={nodes.Cube_1.geometry} material={materials.floor} />
@@ -751,7 +769,7 @@ export const House = (props) => {
             <mesh castShadow geometry={nodes.Cylinder003_7.geometry} material={materials.phoneScreen} />
           </group>
         </group>
-        <mesh castShadow geometry={nodes.loader.geometry} material={materials['loader.001']} position={[-0.535, 2.039, -0.146]} scale={[0.38, 0.303, 0.364]} />
+        <mesh ref={loader} castShadow geometry={nodes.loader.geometry} material={materials['loader.001']} position={[3,0.6,-3]} scale={[0,0,0]} />
         <group ref={walk} position={[1.418, -0.08, 3.39]}>
           <mesh receiveShadow geometry={nodes.Cube050.geometry} material={materials['walk-shadow']} />
           <mesh castShadow geometry={nodes.Cube050_1.geometry} material={materials['walk-cast']} />
