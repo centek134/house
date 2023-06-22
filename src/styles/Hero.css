@@ -35,6 +35,18 @@
     height: 20px;
     animation: arrowMovement linear 0.7s infinite;
 }
+.hero__intro{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.intro__title{
+    font-size: 20px;
+}
+.title__item{
+    opacity: 0;
+}
 
 @keyframes arrowMovement {
     0%{
