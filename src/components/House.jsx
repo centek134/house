@@ -29,6 +29,10 @@ export const House = (props) => {
   const walkPlates = useRef()
   const stone1 = useRef();
   const stone2 = useRef();
+  document.querySelector(".wrapper__scroll-overlay").addEventListener("wheel", (e) => {
+    e.preventDefault();
+    return;
+  })
 
   useLayoutEffect(()=> {
     gsap.registerPlugin(ScrollTrigger);
@@ -46,16 +50,7 @@ export const House = (props) => {
           }
         });
         tl.to(camera.current.position,{x:0,y:10,z:13});
-        /*
-        popping up elements scale for loader [2.9,2.5,2.8]   original position -0.535, 2.039, -0.146
-        last loader position needs to be {x:-0.535,y:2.039,z:-0.146, duration:1.2}
-        rotation at end   tl.to(loader.current.rotation, {x:0,y:12.56,z:0, duration:1.2},"-=1.2")
-        scale tl.to(loader.current.scale,{x:2.9,y:2.5,z:2.8,duration:0.7});
-        original scale scale={[0.38, 0.303, 0.364]}
-        original position -0.535, 2.039, -0.146
-
-        */
-
+        
         tl = gsap.timeline();
         tl.to(loader.current.scale, {x:0.49, y:0.39, z:0.47, duration:0.7})
         tl.to(loader.current.position,{x:-3.5,y:0.6,z:2, ease:true, duration:1});
@@ -76,6 +71,7 @@ export const House = (props) => {
         tl.fromTo(".first__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
         tl.fromTo(".second__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
         tl.fromTo(".hero__arrow", {opacity:0},{opacity:1,duration:0.75});
+        tl.to(".wrapper__scroll-overlay",{display:"none", duration:0.01})
         //floor 1 animation
         tl = gsap.timeline({
           scrollTrigger:{
