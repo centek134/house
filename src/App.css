@@ -34,3 +34,11 @@
     width: 100%;
     height: 100%;
 }
+
+.wrapper__scroll-overlay{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000000;
+    z-index: 10;
+}

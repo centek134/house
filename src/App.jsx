@@ -24,6 +24,7 @@ const App = () => {
       <Hero/>
       <PageContent/>
     </section>
+    <div className="wrapper__scroll-overlay"></div>
     <Loader/>
   </div>
   );
