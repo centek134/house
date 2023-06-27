@@ -83,7 +83,7 @@ export const House = (props) => {
             trigger:".hero",
             start:"bottom",
             end:"2500px",
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:1});
@@ -93,7 +93,7 @@ export const House = (props) => {
             trigger:".section-margin.--first",
             start:"-1500px top",
             end:"top",
-            scrub: true,
+            scrub: true
           }
         });
         tl.fromTo(camera.current.position,{x:0,y:10,z:13}, {x:-7,duration:3});
@@ -106,8 +106,7 @@ export const House = (props) => {
             end:"bottom bottom",
             pin:".about-me .progress-bar-wrapper .progress-bar",
             pinSpacing:false,
-            scrub: true,
-            markers:true
+            scrub: true
           }
         });
         tl.fromTo(".about-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
@@ -705,7 +704,7 @@ export const House = (props) => {
           </group>
         </group>
         <group ref={scale7}>
-          <mesh castShadow geometry={nodes.carpet.geometry} material={materials.carpet} position={[1.37, 0.076, 0.686]} />
+          <mesh geometry={nodes.carpet.geometry} material={materials.carpet} position={[1.37, 0.076, 0.686]} />
           <mesh castShadow geometry={nodes.poster.geometry} material={materials.Material} position={[-3.085, 2.39, -1.425]} rotation={[0, 0, -Math.PI / 2]} />
           <group position={[1.071, 3.967, -2.135]} rotation={[0, -0.333, 0]}>
             <mesh castShadow geometry={nodes.Cube039.geometry} material={materials['bookPage.003']} />

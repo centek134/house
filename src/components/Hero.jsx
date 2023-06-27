@@ -11,7 +11,6 @@ export const Hero = () => {
           <p className="second__title">TOMASZOSUCH PORTFOLIO</p>
         </div>
         <div className="hero__intro">
-          {/* <p className="intro__title">Welcome to my portfolio!</p> */}
           <p className="intro__title">
             <span className="title__item">W</span>
             <span className="title__item">e</span>
