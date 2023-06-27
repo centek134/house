@@ -29,7 +29,12 @@ export const House = (props) => {
   const walkPlates = useRef()
   const stone1 = useRef();
   const stone2 = useRef();
+  // preventing user from scrolling on desktop, mobile while intro animation is playing
   document.querySelector(".wrapper__scroll-overlay").addEventListener("wheel", (e) => {
+    e.preventDefault();
+    return;
+  })
+  document.querySelector(".wrapper__scroll-overlay").addEventListener("touchstart", (e) => {
     e.preventDefault();
     return;
   })
@@ -194,7 +199,15 @@ export const House = (props) => {
         tl.to(camera.current.position,{x:0,y:10,z:13});
         //popping up elements
         tl = gsap.timeline();
-        tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
+        tl.to(loader.current.scale, {x:0.49, y:0.39, z:0.47, duration:0.7})
+        tl.to(loader.current.position,{x:-3.5,y:0.6,z:2, ease:true, duration:1});
+        tl.to(".title__item", {opacity:1, stagger:-0.02}, "-=0.9");
+        tl.to(".title__item", {opacity:0, stagger:0.02},"+=1");
+        tl.to(loader.current.rotation, {x:0,y:6.28,z:0, duration:0.8},"+=0.5")
+        tl.to(loader.current.scale,{x:2.9,y:2.5,z:2.8,duration:0.8}, "-=0.8");
+        tl.to(loader.current.position,{x:-0.535,y:2.039,z:-0.146, duration:0.8}, "-=0.8");
+        tl.to(loader.current.scale,{x:0,y:0,z:0, duration:1},"+=0.5");
+        tl.to(scale1.current.scale,{x:1,y:1,z:1,duration:0.01},"<");
         tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6});
         tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
         tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
@@ -204,6 +217,8 @@ export const House = (props) => {
         tl.fromTo(".first__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
         tl.fromTo(".first__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
         tl.fromTo(".second__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+        tl.fromTo(".hero__arrow", {opacity:0},{opacity:1,duration:0.75});
+        tl.to(".wrapper__scroll-overlay",{display:"none", duration:0.01})
         //floor 1 animation
         tl = gsap.timeline({
           scrollTrigger:{
@@ -324,7 +339,15 @@ export const House = (props) => {
         tl.to(camera.current.position,{x:0,y:10,z:13});
         //popping up elements
         tl = gsap.timeline();
-        tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
+        tl.to(loader.current.scale, {x:0.49, y:0.39, z:0.47, duration:0.7})
+        tl.to(loader.current.position,{x:-3.5,y:0.6,z:2, ease:true, duration:1});
+        tl.to(".title__item", {opacity:1, stagger:-0.02}, "-=0.9");
+        tl.to(".title__item", {opacity:0, stagger:0.02},"+=1");
+        tl.to(loader.current.rotation, {x:0,y:6.28,z:0, duration:0.8},"+=0.5")
+        tl.to(loader.current.scale,{x:2.9,y:2.5,z:2.8,duration:0.8}, "-=0.8");
+        tl.to(loader.current.position,{x:-0.535,y:2.039,z:-0.146, duration:0.8}, "-=0.8");
+        tl.to(loader.current.scale,{x:0,y:0,z:0, duration:1},"+=0.5");
+        tl.to(scale1.current.scale,{x:1,y:1,z:1,duration:0.01},"<");
         tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6});
         tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
         tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
@@ -334,6 +357,8 @@ export const House = (props) => {
         tl.fromTo(".first__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
         tl.fromTo(".first__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
         tl.fromTo(".second__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+        tl.fromTo(".hero__arrow", {opacity:0},{opacity:1,duration:0.75});
+        tl.to(".wrapper__scroll-overlay",{display:"none", duration:0.01})
         //floor 1 animation
         tl = gsap.timeline({
           scrollTrigger:{
@@ -454,7 +479,15 @@ export const House = (props) => {
       tl.to(camera.current.position,{x:0,y:14,z:18});
       //popping up elements
       tl = gsap.timeline();
-      tl.fromTo(scale1.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:1.5});
+      tl.to(loader.current.scale, {x:0.49, y:0.39, z:0.47, duration:0.7})
+      tl.fromTo(loader.current.position,{x:-0.535,y:1.039,z:-0.146},{x:-0.535,y:3.039,z:-0.146, ease:true, duration:1});
+      tl.to(".title__item", {opacity:1, stagger:-0.02}, "-=0.4");
+      tl.to(".title__item", {opacity:0, stagger:0.02},"+=1");
+      tl.to(loader.current.rotation, {x:0,y:6.28,z:0, duration:0.8},"+=0.5")
+      tl.to(loader.current.scale,{x:2.9,y:2.5,z:2.8,duration:0.8}, "-=0.8");
+      tl.to(loader.current.position,{x:-0.535,y:2.039,z:-0.146, duration:0.8}, "-=0.8");
+      tl.to(loader.current.scale,{x:0,y:0,z:0, duration:1},"+=0.5");
+      tl.to(scale1.current.scale,{x:1,y:1,z:1,duration:0.01},"<");
       tl.fromTo(scale2.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6});
       tl.fromTo(scale3.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
       tl.fromTo(scale4.current.scale,{x:0,y:0,z:0},{x:1,y:1,z:1,duration:0.6},"-=0.3");
@@ -464,6 +497,8 @@ export const House = (props) => {
       tl.fromTo(".first__name", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75},"+=0.3");
       tl.fromTo(".first__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
       tl.fromTo(".second__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
+      tl.fromTo(".hero__arrow", {opacity:0},{opacity:1,duration:0.75});
+      tl.to(".wrapper__scroll-overlay",{display:"none", duration:0.01})
       //camera + floor 1 animation
       tl = gsap.timeline({
         scrollTrigger:{
