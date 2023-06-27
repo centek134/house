@@ -81,7 +81,7 @@ export const PageContent = () => {
               <h3 className="detail__header">Don't be shy, reach me  </h3>
               <ul className="detail__contact-list">
                 <li className="list__item">via <a className="item__link" href="https://www.linkedin.com/in/tomasz-osuch-1865811a4/" target="__blank">Linkedin</a></li>
-                <li className="list__item">if you like writing emails <a className="item__link" href="mailto:nowhere@mozilla.org"><span>Mail me</span></a> then</li>
+                <li className="list__item">You can <a className="item__link" href="mailto:tomaszosuch124@wp.pl"><span>mail me</span></a>.</li>
               </ul>
             </div>
           </article>
