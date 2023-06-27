@@ -10,7 +10,35 @@ export const Hero = () => {
         <div className="hero__second">
           <p className="second__title">TOMASZOSUCH PORTFOLIO</p>
         </div>
-          <img className="hero__arrow" src={ArrowDown}/>
+        <div className="hero__intro">
+          <p className="intro__title">
+            <span className="title__item">W</span>
+            <span className="title__item">e</span>
+            <span className="title__item">l</span>
+            <span className="title__item">c</span>
+            <span className="title__item">o</span>
+            <span className="title__item">m</span>
+            <span className="title__item">e</span>
+            <span className="title__item"> </span>
+            <span className="title__item">t</span>
+            <span className="title__item">o</span>
+            <span className="title__item"> </span>
+            <span className="title__item">m</span>
+            <span className="title__item">y</span>
+            <span className="title__item"> </span>
+            <span className="title__item">p</span>
+            <span className="title__item">o</span>
+            <span className="title__item">r</span>
+            <span className="title__item">t</span>
+            <span className="title__item">f</span>
+            <span className="title__item">o</span>
+            <span className="title__item">l</span>
+            <span className="title__item">i</span>
+            <span className="title__item">o</span>
+            <span className="title__item">!</span>
+          </p>
+        </div>
+        <img className="hero__arrow" src={ArrowDown}/>
     </section>
   );
 };

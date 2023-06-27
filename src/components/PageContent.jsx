@@ -40,7 +40,7 @@ export const PageContent = () => {
               <h3 className="detail__header">Software skills</h3>
               <ul className="detail__skills-list">
                 <li className="list__item">HTML5, CSS3, SASS, BEM</li>
-                <li className="list__item">JavaScript, Typescript, Rest API, Three.js</li>
+                <li className="list__item">JavaScript, Typescript, Rest API, Three.js, Blender</li>
                 <li className="list__item">React, React Router</li>
                 <li className="list__item">Jira, Github, AEM, Agile methodology</li>
               </ul>
@@ -62,7 +62,6 @@ export const PageContent = () => {
                 <li className="list__item">Samsung Galaxy <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-s23/" target="__blank">S23</a> & <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-s23-ultra/" target="__blank">S23 Ultra</a></li>
               </ul>
             </div>
-            <p className="detail-wrapper__text"></p>
           </article>
       </section>
       <div className="section-margin --third"></div>

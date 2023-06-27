@@ -34,49 +34,10 @@
     width: 100%;
     height: 100%;
 }
-
-/* 
-:root{
-    --hot-pink:#eb688f;
-    --green:#00c46f;
-    --purple:#7161ef;
-
-
-    #C7B198
-
-    #596E79
-
-    #7161ef
-
-    #f27a7d
-
-
-    #FFFBEB
-    
-    #e9ffee
-
-    #DAF5FF
-
-    #C8FFD4
-
-    
-    
-}
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
-.wrapper{
+.wrapper__scroll-overlay{
     position: fixed;
     width: 100vw;
     height: 100vh;
+    background-color: #00000000;
+    z-index: 10;
 }
-.wrapper__canvas{
-    width: 100%;
-    height: 100%;
-}
-.wrapper__page{
-    overflow: visible;
-} */

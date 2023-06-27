@@ -7,7 +7,7 @@
 }
 .hero__first{
     position: absolute;
-    bottom: 30%;
+    bottom: 20%;
 }
 .hero .first__name{
     font-size: 70px;
@@ -19,7 +19,7 @@
 }
 .hero__second{
     position: absolute;
-    top: 35%;
+    top: 20%;
     right: 0;
     width: 300px
 }
@@ -35,6 +35,18 @@
     height: 20px;
     animation: arrowMovement linear 0.7s infinite;
 }
+.hero__intro{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.intro__title{
+    font-size: 20px;
+}
+.title__item{
+    opacity: 0;
+}
 
 @keyframes arrowMovement {
     0%{
@@ -45,5 +57,71 @@
     }
     100%{
         top: 90%;
+    }
+}
+
+@media screen and (min-width:1250px) and (max-width:1499px){
+    .hero .first__name{
+        font-size: 60px;
+    }
+    .hero .first__title{
+        font-size: 24px;
+    }
+    .second__title{
+        font-size: 30px;
+    }
+}
+@media screen and (min-width:969px) and (max-width:1249px){
+    .hero__first{
+        left: 5%;
+    }
+    .hero .first__name{
+        font-size: 60px;
+    }
+    .hero .first__title{
+        font-size: 24px;
+    }
+    .second__title{
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:968px){
+    .hero__first{
+        left: 5%;
+    }
+    .hero .first__name{
+        font-size: 40px;
+        text-shadow: #ffb94f 3px 3px 0px;
+    }
+    .hero .first__title{
+        font-size: 20px;
+    }
+    .hero__second{
+        width: 200px;
+    }
+    .second__title{
+        font-size: 22px;
+    }
+}
+@media screen and (max-width:499px){
+    .hero__first{
+        left: 5%;
+    }
+    .hero .first__name{
+        font-size: 30px;
+        text-shadow: #ffb94f 2px 2px 0px;
+    }
+    .hero .first__title{
+        font-size: 16px;
+    }
+    .hero__second{
+        width: 150px;
+    }
+    .second__title{
+        font-size: 18px;
+    }
+    .hero__intro .intro__title{
+        font-size: 12px;
     }
 }
