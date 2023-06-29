@@ -9,7 +9,7 @@ import {gsap} from "gsap"
 import { ScrollTrigger} from "gsap/all";
 
 export const House = (props) => {
-  const { nodes, materials } = useGLTF('/House.gltf')
+  const { nodes, materials } = useGLTF('/house.gltf')
   const scale1 = useRef();
   const scale2 = useRef();
   const scale3 = useRef();
@@ -214,7 +214,7 @@ export const House = (props) => {
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".section-margin.--second",
-            start:"-3000px top",
+            start:"-3000px",
             end:"top",
             scrub: true
           }
@@ -238,14 +238,14 @@ export const House = (props) => {
         tl = gsap.timeline({
           scrollTrigger:{
             trigger:".section-margin.--third",
-            start:"-2000px top",
+            start:"-3000px",
             end:"bottom",
             scrub: true
           }
         });
         tl.fromTo(camera.current.position, {x:3.5,y:5,z:4,duration:5},{x:-2,y:3,z:7,duration:3});
         tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5},"<");
-        tl.fromTo(".contact-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0}, "-=1");
+        tl.fromTo(".contact-me",{borderTopRightRadius:1000}, {duration:3, borderTopRightRadius:0});
         //progress bar for contact-me section
         tl = gsap.timeline({
           scrollTrigger:{
@@ -312,7 +312,7 @@ export const House = (props) => {
         tl = gsap.timeline({
         scrollTrigger:{
           trigger:".section-margin.--first",
-          start:"-3000px top",
+          start:"-3000px",
           end:"top",
           scrub: true
         }
@@ -336,7 +336,7 @@ export const House = (props) => {
       tl = gsap.timeline({
           scrollTrigger:{
           trigger:".section-margin.--second",
-          start:"-3000px top",
+          start:"-3000px",
           end:"top",
           scrub: true
         }
@@ -360,7 +360,7 @@ export const House = (props) => {
       tl = gsap.timeline({
         scrollTrigger:{
           trigger:".section-margin.--third",
-          start:"-2000px top",
+          start:"-3000px",
           end:"bottom",
           scrub: true
         }
@@ -764,4 +764,4 @@ export const House = (props) => {
   )
 }
 
-useGLTF.preload('/House.gltf')
+useGLTF.preload('/house.gltf')
