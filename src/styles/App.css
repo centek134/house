@@ -1,15 +1,3 @@
-:root{
-    --hot-pink:#eb688f;
-    --green:#00c46f;
-    --purple:#7161ef;
-    --black:#000;
-}
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
 .wrapper__canvas{
     position: fixed;
     width: 100vw;
