@@ -430,27 +430,18 @@ export const House = (props) => {
       tl.fromTo(".second__title", {opacity:0, translateY:-20},{opacity:1, translateY:0, duration:0.75});
       tl.fromTo(".hero__arrow", {opacity:0},{opacity:1,duration:0.75});
       tl.to(".wrapper__scroll-overlay",{display:"none", duration:0.01})
-      //camera + floor 1 animation
-      tl = gsap.timeline({
-        scrollTrigger:{
-          trigger:".hero",
-          start:"bottom",
-          end:"3000px",
-          scrub: true
-        }
-      });
-      tl.fromTo(camera.current.position,{x:0,y:14,z:18},{x:0,y:9,z:10, duration:5});
-      tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:80,y:80,z:0.05,duration:15});
-      //about-me radius animation
+      //floor 1 + camera movement + about-me section radius
       tl = gsap.timeline({
         scrollTrigger:{
           trigger:".section-margin.--first",
-          start:"-1500px top",
-          end:"top",
+          start:"-3000px",
+          end:"bottom",
           scrub: true
         }
       });
-      tl.fromTo(".about-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
+      tl.fromTo(floor1.current.scale, {x:0,y:0,z:0.05},{x:65,y:65,z:0.05,duration:3});
+      tl.fromTo(camera.current.position,{x:0,y:14,z:18},{x:0,y:9,z:10, duration:5},"<");
+      tl.fromTo(".about-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3});
       //progress bar for about-me section
       tl = gsap.timeline({
         scrollTrigger:{
@@ -463,7 +454,7 @@ export const House = (props) => {
         }
       });
       tl.fromTo(".about-me .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
-      //camera movement + floor 2 animation
+      //floor 2 + camera movement + mywork section radius
       tl = gsap.timeline({
         scrollTrigger:{
           trigger:".section-margin.--second",
@@ -472,18 +463,9 @@ export const House = (props) => {
           scrub: true
         }
       });
-      tl.fromTo(camera.current.position,{x:0,y:9,z:10}, {x:2.5,y:5,z:5,duration:4});
-      tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:45,y:45,z:0.05,duration:8});
-      //my-work radius animation
-      tl = gsap.timeline({
-        scrollTrigger:{
-          trigger:".section-margin.--second",
-          start:"-1500px top",
-          end:"top",
-          scrub: true
-        }
-      });
-      tl.fromTo(".my-work",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
+      tl.fromTo(floor2.current.scale, {x:0,y:0,z:0.05},{x:40,y:40,z:0.05,duration:3});
+      tl.fromTo(camera.current.position,{x:0,y:9,z:10}, {x:2.5,y:5,z:4,duration:5},"<");
+      tl.fromTo(".my-work",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3});
       //progress bar for my-work section
       tl = gsap.timeline({
         scrollTrigger:{
@@ -496,27 +478,18 @@ export const House = (props) => {
         }
       });
       tl.fromTo(".my-work .progress-bar-wrapper .progress-bar",{scaleY:0}, {duration:10, scaleY:1});
-      //camera + contact-me + floor 3
+        //floor 3 + camera movement + about-me section radius
       tl = gsap.timeline({
         scrollTrigger:{
           trigger:".section-margin.--third",
           start:"-3000px top",
-          end:"-500px bottom",
+          end:"bottom",
           scrub: true
         }
       });
-      tl.fromTo(camera.current.position, {x:2.5,y:5,z:5,duration:5},{x:-1,y:3,z:10,duration:3});
-      tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:25,y:25,z:0.05,duration:5});
-      //contact-me radius animation
-      tl = gsap.timeline({
-        scrollTrigger:{
-          trigger:".section-margin.--third",
-          start:"-1500px top",
-          end:"top",
-          scrub: true
-        }
-      });
-      tl.fromTo(".contact-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3}, "-=1");
+      tl.fromTo(floor3.current.scale, {x:0,y:0,z:0.05},{x:20,y:20,z:0.05,duration:3});
+      tl.fromTo(camera.current.position, {x:2.5,y:5,z:4,duration:5},{x:-1,y:3,z:10,duration:5},"<");
+      tl.fromTo(".contact-me",{borderTopLeftRadius:1000,borderTopRightRadius:1000}, {borderTopLeftRadius:0, borderTopRightRadius:0, duration:3});
       //progress bar for contact-me section
       tl = gsap.timeline({
         scrollTrigger:{

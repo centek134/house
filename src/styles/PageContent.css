@@ -55,8 +55,7 @@
 .section__detail-wrapper{
     font-family: 'Montserrat', sans-serif;
     width: 100%;
-    padding: 150px 0px 500px 0px;
-    margin: 0 20px;
+    padding: 150px 20px 500px 20px;
 }
 .detail{
     padding: 10px 0;
@@ -153,6 +152,7 @@
 @media screen and (min-width:501px) and (max-width:968px){
     .section{
         width: 100%;
+        padding: 500px 20px 0 30px;
     }
     .--right{
         left: 0%;
@@ -161,6 +161,7 @@
 @media screen and (max-width:500px){
     .section{
         width: 100%;
+        padding: 500px 20px 0 30px;
     }
     .--right{
         left: 0%;
@@ -177,9 +178,6 @@
     }
     .intro-wrapper__decoration{
         margin: 0 10px;
-    }
-    .section__detail-wrapper{
-        margin: 0 0 0 10px;
     }
     .intro-wrapper__number{
         font-size: 20px;
