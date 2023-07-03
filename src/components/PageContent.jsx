@@ -63,7 +63,7 @@ export const PageContent = () => {
               </ul>
             </div>
             <div className="detail">
-              <h3 className="detail__header">Want to see more? Check my <a className="header__link" href="https://github.com/centek134" target="__blank">github</a>.</h3>
+              <h3 className="detail__header">Would you like to see more? Check my <a className="header__link" href="https://github.com/centek134" target="__blank">github</a>.</h3>
             </div>
           </article>
       </section>
