@@ -51,16 +51,19 @@ export const PageContent = () => {
                 <li className="list__item">Problem solving abilities</li>
                 <li className="list__item">Ability to work under time pressure</li>
                 <li className="list__item">Analytical thinking</li>
-                <li className="list__item">Ability to work in a gruop</li>
+                <li className="list__item">Ability to work in a group</li>
               </ul>
             </div>
             <div className="detail">
             <h3>Commercial Projects:</h3>
               <ul className="detail__work-list">
                 <li className="list__item">Samsung Galaxy <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-s22/" target="__blank">S22</a> & <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-s22-ultra/" target="__blank">S22 Ultra</a></li>
-                <li className="list__item">Samsung Galaxy Z <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-z-flip4/" target="__blank">Flip4</a> & <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-z-fold4/" target="__blank">Fold4</a></li>
+                <li className="list__item">Samsung Galaxy <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-z-flip4/" target="__blank">Z Flip4</a> & <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-z-fold4/" target="__blank">Z Fold4</a></li>
                 <li className="list__item">Samsung Galaxy <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-s23/" target="__blank">S23</a> & <a className="item__link" href="https://www.samsung.com/uk/smartphones/galaxy-s23-ultra/" target="__blank">S23 Ultra</a></li>
               </ul>
+            </div>
+            <div className="detail">
+              <h3 className="detail__header">Want to see more? Check my <a className="header__link" href="https://github.com/centek134" target="__blank">github</a>.</h3>
             </div>
           </article>
       </section>
@@ -78,10 +81,10 @@ export const PageContent = () => {
           </article>
           <article className="section__detail-wrapper">
           <div className="detail">
-              <h3 className="detail__header">Don't be shy, reach me  </h3>
+              <h3 className="detail__header">Don't be shy</h3>
               <ul className="detail__contact-list">
-                <li className="list__item">via <a className="item__link" href="https://www.linkedin.com/in/tomasz-osuch-1865811a4/" target="__blank">Linkedin</a></li>
-                <li className="list__item">You can <a className="item__link" href="mailto:tomaszosuch124@wp.pl"><span>mail me</span></a>.</li>
+                <li className="list__item">reach me out by <a className="item__link" href="https://www.linkedin.com/in/tomasz-osuch-1865811a4/" target="__blank">Linkedin</a>.</li>
+                <li className="list__item">Send me an <a className="item__link" href="mailto:tomaszosuch124@wp.pl"><span>email</span></a>.</li>
               </ul>
             </div>
           </article>
