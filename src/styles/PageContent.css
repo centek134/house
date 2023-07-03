@@ -75,11 +75,11 @@
 .list__item{
     padding: 10px 0 10px 10px;
 }
-.list__item .item__link{
+.list__item .item__link, .detail__header .header__link{
     font-weight: 900;
     color: var(--black);
 }
-.list__item .item__link:visited{
+.list__item .item__link:visited, .detail__header .header__link:visited{
     color: var(--black);
 }
 .--right{
