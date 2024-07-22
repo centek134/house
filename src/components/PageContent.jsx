@@ -37,19 +37,19 @@ export const PageContent = () => {
           </article>
           <article className="section__detail-wrapper">
             <div className="detail">
-              <h3 className="detail__header">Software skills</h3>
+              <h3 className="detail__header">Software skills:</h3>
               <ul className="detail__skills-list">
                 <li className="list__item">React, JavaScript ES6+, TypeScript, REST API</li>
                 <li className="list__item">React Three Drei, React, Three Fiber, Three.js, GSAP</li>
                 <li className="list__item">Blender 3.5, Photoshop, Figma</li>
                 <li className="list__item">HTML5, CSS3, SASS, BEM, RWD</li>
                 <li className="list__item">Webpack, Npm, Github</li>
-                <li className="list__item">CMS: Adobe Experience Manager (AEM)</li>
+                <li className="list__item">Adobe Experience Manager (AEM)</li>
                 <li className="list__item">Working with: Confluence, JIRA, Slack, Agile: Scrum</li>
               </ul>
             </div>
             <div className="detail">
-              <h3 className="detail__header">Soft skills</h3>
+              <h3 className="detail__header">Soft skills:</h3>
               <ul className="detail__skills-list">
                 <li className="list__item">Problem solving abilities</li>
                 <li className="list__item">Ability to work under time pressure</li>
@@ -71,14 +71,14 @@ export const PageContent = () => {
 
               <ul className="detail__role-list">
                 <h4>My role during the projects:</h4>
-                <li >Preparation and onboarding of tools necessary for the project take-off</li>
-                <li >Creation and localization of websites for specific European markets under the HQ (Korean) guidelines</li>
-                <li >Solving complex technical problems occurring during production</li>
+                <li >Preparation and onboarding of tools necessary for the project take-off.</li>
+                <li >Creation and localization of websites for specific European markets under the HQ (Korean) guidelines.</li>
+                <li >Solving complex technical problems occurring during production.</li>
               </ul>
               </small>
             </div>
             <div className="detail">
-              <h3 className="detail__header">Would you like to see more? Check my <a className="header__link" href="https://github.com/centek134" target="__blank">github</a>.</h3>
+              <h3 className="detail__header">Would you like to see more? Check my <a title="Link to Tomasz github profile" className="header__link" href="https://github.com/centek134" target="__blank">github</a>.</h3>
             </div>
           </article>
       </section>
@@ -99,7 +99,7 @@ export const PageContent = () => {
               <h3 className="detail__header">Don't be shy</h3>
               <ul className="detail__contact-list">
                 <li className="list__item">reach me out by <a className="item__link" href="https://www.linkedin.com/in/tomasz-osuch-1865811a4/" target="__blank" title="Link to Tomasz linkedin">Linkedin</a>.</li>
-                <li className="list__item">Send me an <a className="item__link" href="mailto:tomaszosuch124@wp.pl" title="Mail link"><span>email</span></a>.</li>
+                <li className="list__item">Send me an <a className="item__link" href="mailto:tomaszosuch124@wp.pl" title="Send an email to Tomasz"><span>email</span></a>.</li>
               </ul>
             </div>
           </article>
