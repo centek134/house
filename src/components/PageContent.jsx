@@ -98,7 +98,7 @@ export const PageContent = () => {
           <div className="detail">
               <h3 className="detail__header">Don't be shy</h3>
               <ul className="detail__contact-list">
-                <li className="list__item">reach me out by <a className="item__link" href="https://www.linkedin.com/in/tomasz-osuch-1865811a4/" target="__blank" title="Link to Tomasz linkedin">Linkedin</a>.</li>
+                {/* <li className="list__item">reach me out by <a className="item__link" href="https://www.linkedin.com/in/tomasz-osuch-1865811a4/" target="__blank" title="Link to Tomasz linkedin">Linkedin</a>.</li> */}
                 <li className="list__item">Send me an <a className="item__link" href="mailto:tomaszosuch124@wp.pl" title="Send an email to Tomasz"><span>email</span></a>.</li>
               </ul>
             </div>
